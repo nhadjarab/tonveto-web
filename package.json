@@ -9,18 +9,26 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.0",
+    "@tanstack/react-query": "^4.2.3",
+    "@tanstack/react-query-devtools": "^4.2.3",
     "@types/validator": "^13.7.6",
+    "axios": "^0.27.2",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.34.2",
     "react-icons": "^4.4.0",
+    "react-spinners": "^0.13.4",
+    "react-toastify": "^9.0.8",
+    "recoil": "^0.7.5",
     "validator": "^13.7.0"
   },
   "devDependencies": {
     "@types/node": "18.7.14",
     "@types/react": "18.0.18",
     "@types/react-dom": "18.0.6",
+    "@types/react-toastify": "^4.1.0",
     "autoprefixer": "^10.4.8",
     "eslint": "8.23.0",
     "eslint-config-next": "12.2.5",
