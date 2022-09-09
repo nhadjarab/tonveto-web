@@ -15,6 +15,8 @@ import { userState } from '@/recoil/atoms';
 
 // Components import
 import SideBar from '@/components/sideBar';
+import AppointmentsPage from '@/components/appointmentsPage';
+import SpecialtiesPage from '@/components/specialtiesPage';
 
 const Dashboard: NextPage = () => {
 
@@ -49,11 +51,31 @@ const Dashboard: NextPage = () => {
         })()
     }, [])
 
-    return <div className="bg-bgColor">
+
+
+    const renderPages = () => {
+        switch (active) {
+            case 0:
+                return <AppointmentsPage />
+            case 1:
+                return <div>Clinics</div>
+            case 2:
+                return <div>Working Hours</div>
+            case 3:
+                return <SpecialtiesPage />
+            case 4:
+                return <div>Settings</div>
+            default:
+                return <div>Appointments</div>
+        }
+    }
+
+    return <div className="bg-bgColor flex">
         <Head><title>Dashboard</title></Head>
 
         <SideBar active={active} setActive={setActive} />
 
+        {renderPages()}
 
     </div>
 }

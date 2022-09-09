@@ -12,7 +12,7 @@ type SideBartProps = {
 }
 
 const SideBar: FunctionComponent<SideBartProps> = ({ active, setActive }) => {
-    return <div className="w-[18rem] h-screen p-6 flex flex-col items-center justify-between bg-white text-black">
+    return <div className="w-[18rem] h-screen p-10 flex flex-col items-center justify-between bg-white text-black">
         <span className="font-medium text-[1.5rem]">VetoLib</span>
 
         <div className="flex flex-col gap-y-4">

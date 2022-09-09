@@ -22,7 +22,8 @@
       "@Types/*": ["src/types/*"],
       "@Constants/*": ["src/constants/*"],
       "@Recoil/*": ["src/recoil/*"],
-      "@API/*": ["src/api/*"]
+      "@API/*": ["src/api/*"],
+      "@Lotties/*": ["src/lotties/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

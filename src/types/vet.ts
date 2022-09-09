@@ -11,6 +11,8 @@ export type VetProfile = {
   type?: string;
   bank_details: string;
   clinics: Clinic[];
+  appointments: Appointment[];
+  specialities : Specialty[];
 };
 
 export type VetAuth = {
