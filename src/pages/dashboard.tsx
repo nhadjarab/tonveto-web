@@ -13,10 +13,14 @@ import { useRecoilState } from 'recoil'
 // Atoms import
 import { userState } from '@/recoil/atoms';
 
+// Components import
+import SideBar from '@/components/sideBar';
+
 const Dashboard: NextPage = () => {
 
     // Recoil State
     const [user, setUser] = useRecoilState(userState)
+    const [active, setActive] = useState(0)
 
     // Router
     const router = useRouter();
@@ -32,6 +36,8 @@ const Dashboard: NextPage = () => {
 
             setUser(profile!)
 
+            if (profile?.vetProfile.is_approved) return
+
             if (profile?.vetProfile.profile_complete && profile?.vetProfile?.clinics?.length == 0) return router.replace("/onboarding/clinic")
             if (profile?.vetProfile.profile_complete && profile?.vetProfile?.clinics?.length > 0) return router.replace("/onboarding/clinic")
             if (!profile?.vetProfile.profile_complete) return router.push("/onboarding")
@@ -43,8 +49,10 @@ const Dashboard: NextPage = () => {
         })()
     }, [])
 
-    return <div>
+    return <div className="bg-bgColor">
         <Head><title>Dashboard</title></Head>
+
+        <SideBar active={active} setActive={setActive} />
 
 
     </div>
