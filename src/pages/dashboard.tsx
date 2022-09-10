@@ -17,6 +17,7 @@ import { userState } from '@/recoil/atoms';
 import SideBar from '@/components/sideBar';
 import AppointmentsPage from '@/components/appointmentsPage';
 import SpecialtiesPage from '@/components/specialtiesPage';
+import SettingsPage from '@/components/settingsPage';
 
 const Dashboard: NextPage = () => {
 
@@ -64,7 +65,7 @@ const Dashboard: NextPage = () => {
             case 3:
                 return <SpecialtiesPage />
             case 4:
-                return <div>Settings</div>
+                return <SettingsPage />
             default:
                 return <div>Appointments</div>
         }

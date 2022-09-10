@@ -6,10 +6,10 @@ import { AiOutlineClose } from "react-icons/ai"
 
 // Dependcies import
 import { toast } from "react-toastify";
-import { useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 
 // Atom import
-import { selectedSpecialtyAtom } from "@/recoil/atoms";
+import { selectedSpecialtyAtom , } from "@/recoil/atoms";
 
 // API import
 import { createSpecialty, updateSpecialty } from "@/api/specialty/specialty";
@@ -23,7 +23,7 @@ type Props = {
 const NewSpecialtyModal: FunctionComponent<Props> = ({ setIsModalOpen, loadSpecialties }) => {
 
     // Recoil state
-    const selectedSpecialty = useRecoilValue(selectedSpecialtyAtom)
+    const [selectedSpecialty , setSelectedSpecialty] = useRecoilState(selectedSpecialtyAtom)
 
     // Local state
     const [specialtyName, setSpecialtyName] = useState(selectedSpecialty ? selectedSpecialty.name : "")
@@ -48,6 +48,7 @@ const NewSpecialtyModal: FunctionComponent<Props> = ({ setIsModalOpen, loadSpeci
             console.log()
             if (result!.status === 200) {
                 toast.success(selectedSpecialty ? "Specialty updated successfully" : "Specialty created successfully")
+                setSelectedSpecialty(null)
                 setIsCreating(false)
                 setIsModalOpen(false)
                 loadSpecialties()

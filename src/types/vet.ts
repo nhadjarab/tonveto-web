@@ -5,7 +5,7 @@ export type VetProfile = {
   email: string;
   birth_date: string;
   phone_number: string;
-  identification_order: number;
+  identification_order: string;
   profile_complete?: boolean;
   is_approved?: boolean;
   type?: string;
@@ -34,7 +34,7 @@ export type VetRating = {
 export type Specialty = {
   id: string;
   name: string;
-  price: number;
+  price: string;
   vet?: VetProfile;
   vet_id: string;
 };

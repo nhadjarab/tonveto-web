@@ -1,3 +1,6 @@
+// NextJS import
+import { useRouter } from 'next/router';
+
 // React import
 import { FunctionComponent } from "react"
 
@@ -12,6 +15,17 @@ type SideBartProps = {
 }
 
 const SideBar: FunctionComponent<SideBartProps> = ({ active, setActive }) => {
+
+    // Router
+    const router = useRouter()
+
+    // Methods
+    const handleLogout = () => {
+        localStorage.removeItem("token")
+        localStorage.removeItem("user_id")
+        router.replace("/auth")
+    }
+
     return <div className="w-[18rem] h-screen p-10 flex flex-col items-center justify-between bg-white text-black">
         <span className="font-medium text-[1.5rem]">VetoLib</span>
 
@@ -47,7 +61,7 @@ const SideBar: FunctionComponent<SideBartProps> = ({ active, setActive }) => {
                 <span>Settings</span>
             </div>
 
-            <div className={`flex w-[14rem] items-center gap-x-2 cursor-pointer p-2 hover:bg-gray-200/60 duration-300 transition-all rounded-lg hover:scale-110 `}>
+            <div onClick={handleLogout} className={`flex w-[14rem] items-center gap-x-2 cursor-pointer p-2 hover:bg-gray-200/60 duration-300 transition-all rounded-lg hover:scale-110 `}>
                 <BiLogOut className="text-[1.5rem]" />
                 <span>Logout</span>
             </div>
