@@ -11,6 +11,7 @@ import Lottie from "react-lottie";
 import specialty from "@Lotties/specialties.json";
 import { lottieConfig } from "@/lotties/defaultConfig";
 import NewSpecialtyModal from "./newSpecialtyModal";
+import SpecialtyComponent from "./specialty";
 
 
 
@@ -64,12 +65,18 @@ const SpecialtiesPage: FunctionComponent = () => {
                     />
                     <span className="font-medium">You do not have any specialties yet!</span>
                     <button disabled={isFetching} onClick={loadSpecialties} className={`  p-2 bg-black rounded-lg text-white ${isFetching && "bg-gray-400 cursor-not-allowed"}`}>{isFetching ? "Loading..." : "Refresh"}</button>
-                </div> : <span>Who knows mate</span>
+                </div> : <div className="mt-4 flex flex-col gap-y-4">
+                    {
+                        specialties.map((specialty, index) => {
+                            return <SpecialtyComponent key={specialty.id} specialty={specialty} loadSpecialties={loadSpecialties}/>
+                        })
+                    }
+                </div>
         }
 
 
 
-        {isModalOpen && <NewSpecialtyModal isModalOpen setIsModalOpen={setIsModalOpen} />}
+        {isModalOpen && <NewSpecialtyModal setIsModalOpen={setIsModalOpen} loadSpecialties={loadSpecialties} />}
     </div>
 }
 
