@@ -1,23 +1,38 @@
 // React import
-import { deleteSpecialty } from "@/api/specialty/specialty";
-import { Specialty } from "@/types/vet";
 import { FunctionComponent, useState } from "react";
+
+// Dependcies import
 import { toast } from "react-toastify";
+import { useRecoilState } from "recoil";
+
+// Atoms import
+import { selectedSpecialtyAtom } from "@/recoil/atoms";
+
+// Types import
+import { Specialty } from "@/types/vet";
+
+// API iport
+import { deleteSpecialty } from "@/api/specialty/specialty";
 
 
 type Props = {
     specialty: Specialty,
+    setIsModalOpen : (value : boolean) => void,
     loadSpecialties: () => void
 }
 
 
 
 
-const SpecialtyComponent: FunctionComponent<Props> = ({ specialty, loadSpecialties }) => {
+const SpecialtyComponent: FunctionComponent<Props> = ({ specialty, loadSpecialties , setIsModalOpen }) => {
     // Local state
     const [isLoading, setIsLoading] = useState(false)
 
+    // Recoil state
+    const [_selectedSpecialty, setSelectedSpecialty] = useRecoilState(selectedSpecialtyAtom)
 
+
+    // Methods
     const handleDeleteSpecialty = async () => {
         try {
             setIsLoading(true)
@@ -31,6 +46,15 @@ const SpecialtyComponent: FunctionComponent<Props> = ({ specialty, loadSpecialti
         }
     }
 
+    const handleUpdateSpecialty = async () => {
+        try {
+            setSelectedSpecialty(specialty)
+            setIsModalOpen(true)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     return <div className="w-[10rem] h-[10rem] bg-white rounded-lg shadow-lg flex flex-col p-4 justify-between">
         <div className="flex-col flex">
             <span className="text-[1.2rem] font-medium">{specialty.name}</span>
@@ -39,7 +63,7 @@ const SpecialtyComponent: FunctionComponent<Props> = ({ specialty, loadSpecialti
 
 
         <div className="flex w-full gap-x-2">
-            <button disabled={isLoading} className={`p-1 border-2 border-black rounded-lg ${isLoading && "bg-gray-400 cursor-not-allowed"}`}>Update</button>
+            <button onClick={handleUpdateSpecialty} disabled={isLoading} className={`p-1 border-2 border-black rounded-lg ${isLoading && "bg-gray-400 cursor-not-allowed"}`}>Update</button>
             <button onClick={handleDeleteSpecialty} disabled={isLoading} className={`p-1 bg-red-600 text-white rounded-lg ${isLoading && "bg-gray-400 cursor-not-allowed"}`}>Delete</button>
         </div>
 

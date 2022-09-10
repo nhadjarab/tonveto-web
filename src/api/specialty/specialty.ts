@@ -29,15 +29,21 @@ export const createSpecialty = async (name: string, price: string) => {
   }
 };
 
-export const updateProfile = async (profile: any) => {
+export const updateSpecialty = async (
+  name: string,
+  price: string,
+  specialtyId: string
+) => {
   try {
     const id = localStorage.getItem("user_id");
     const token = localStorage.getItem("token");
 
     const result = await axios.put(
-      `${BACKEND_URL}/vet/${id}`,
+      `${BACKEND_URL}/specialty/${specialtyId}`,
       {
-        ...profile,
+        name,
+        price,
+        owner_id: id,
       },
       {
         headers: {
@@ -46,7 +52,7 @@ export const updateProfile = async (profile: any) => {
       }
     );
 
-    return result.data as VetProfile;
+    return result;
   } catch (e) {
     toast.error(JSON.stringify((e as any).response.data));
     console.log(e);
