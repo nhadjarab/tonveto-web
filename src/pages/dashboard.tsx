@@ -19,6 +19,7 @@ import AppointmentsPage from '@/components/appointmentsPage';
 import SpecialtiesPage from '@/components/specialtiesPage';
 import SettingsPage from '@/components/settingsPage';
 import WorkingHoursPage from '@/components/workingHoursPage';
+import ClinicsPage from '@/components/clinicsPage';
 
 const Dashboard: NextPage = () => {
 
@@ -60,7 +61,7 @@ const Dashboard: NextPage = () => {
             case 0:
                 return <AppointmentsPage />
             case 1:
-                return <div>Clinics</div>
+                return <ClinicsPage />
             case 2:
                 return <WorkingHoursPage />
             case 3:

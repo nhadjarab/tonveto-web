@@ -128,7 +128,7 @@ const CreateClinic = () => {
                 )}
             </div>
             <div className='flex flex-col gap-y-2'>
-                <label className={`${labelCalsseName}`}>Last Name:</label>
+                <label className={`${labelCalsseName}`}> City:</label>
                 <input className={`${inputClassName}`} {...register("city", {
                     required: {
                         value: true,

@@ -9,4 +9,9 @@ export const userState = atom<VetState | null>({
 export const selectedSpecialtyAtom = atom<Specialty | null>({
   key: "selectedSpecialtyState",
   default: null,
-})
+});
+
+export const selectedClinicAtom = atom<string | null>({
+  key: "selectedClinicState",
+  default: null,
+});

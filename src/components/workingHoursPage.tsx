@@ -333,7 +333,7 @@ const WorkingHoursPage: FunctionComponent = () => {
 
         if (calendar.saturday !== "closed") {
             setIsSaturday(true)
-            setSaturdayMorningStart(calendar.saturday.morning.start_at)
+            setSSaturdayMorningStart(calendar.saturday.morning.start_at)
             setSaturdayMorningEnd(calendar.saturday.morning.end_at)
             setSaturdayAfternoonStart(calendar.saturday.afternoon.start_at)
             setSaturdayAfternoonEnd(calendar.saturday.afternoon.end_at)
