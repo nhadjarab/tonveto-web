@@ -1,5 +1,5 @@
 // React import
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useEffect, useState, useRef } from "react";
 
 // API import
 import { getProfile } from "@/api/profile/proifle";
@@ -7,6 +7,7 @@ import { Appointment, Specialty } from "@/types/vet";
 
 //Dependcies import
 import Lottie from "react-lottie";
+import autoAnimate from '@formkit/auto-animate'
 
 import specialty from "@Lotties/specialties.json";
 import { lottieConfig } from "@/lotties/defaultConfig";
@@ -45,6 +46,12 @@ const SpecialtiesPage: FunctionComponent = () => {
     }, [])
 
 
+    const parent = useRef(null)
+
+    useEffect(() => {
+        parent.current && autoAnimate(parent.current)
+    }, [parent])
+
     return <div className="w-[calc(100%-18rem)] h-screen flex flex-col text-black p-10">
         <div className="flex w-full items-center justify-between">
 
@@ -65,7 +72,7 @@ const SpecialtiesPage: FunctionComponent = () => {
                     />
                     <span className="font-medium">You do not have any specialties yet!</span>
                     <button disabled={isFetching} onClick={loadSpecialties} className={`  p-2 bg-black rounded-lg text-white ${isFetching && "bg-gray-400 cursor-not-allowed"}`}>{isFetching ? "Loading..." : "Refresh"}</button>
-                </div> : <div className="mt-4 w-full grid grid-flow-col auto-cols-max gap-4">
+                </div> : <div ref={parent} className="mt-4 w-full grid grid-flow-col auto-cols-max gap-4">
                     {
                         specialties.map((specialty, index) => {
                             return <SpecialtyComponent key={specialty.id} specialty={specialty} setIsModalOpen={setIsModalOpen} loadSpecialties={loadSpecialties} />

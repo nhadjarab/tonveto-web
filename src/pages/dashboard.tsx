@@ -18,6 +18,7 @@ import SideBar from '@/components/sideBar';
 import AppointmentsPage from '@/components/appointmentsPage';
 import SpecialtiesPage from '@/components/specialtiesPage';
 import SettingsPage from '@/components/settingsPage';
+import WorkingHoursPage from '@/components/workingHoursPage';
 
 const Dashboard: NextPage = () => {
 
@@ -61,13 +62,13 @@ const Dashboard: NextPage = () => {
             case 1:
                 return <div>Clinics</div>
             case 2:
-                return <div>Working Hours</div>
+                return <WorkingHoursPage />
             case 3:
                 return <SpecialtiesPage />
             case 4:
                 return <SettingsPage />
             default:
-                return <div>Appointments</div>
+                return <AppointmentsPage />
         }
     }
 

@@ -12,7 +12,8 @@ export type VetProfile = {
   bank_details: string;
   clinics: Clinic[];
   appointments: Appointment[];
-  specialities : Specialty[];
+  specialities: Specialty[];
+  calendar: any;
 };
 
 export type VetAuth = {
@@ -101,4 +102,79 @@ export type Clinic = {
   phone_number: string;
   owner_id: string;
   is_approved: boolean;
+};
+
+export type Calendar = {
+  id: string;
+  monday: {
+    morning: {
+      start_at: string;
+      end_at: string;
+    };
+    afternoon: {
+      start_at: string;
+      end_at: string;
+    };
+  };
+  tuesday: {
+    morning: {
+      start_at: string;
+      end_at: string;
+    };
+    afternoon: {
+      start_at: string;
+      end_at: string;
+    };
+  };
+  wednesday: {
+    morning: {
+      start_at: string;
+      end_at: string;
+    };
+    afternoon: {
+      start_at: string;
+      end_at: string;
+    };
+  };
+  thursday: {
+    morning: {
+      start_at: string;
+      end_at: string;
+    };
+    afternoon: {
+      start_at: string;
+      end_at: string;
+    };
+  };
+  friday: {
+    morning: {
+      start_at: string;
+      end_at: string;
+    };
+    afternoon: {
+      start_at: string;
+      end_at: string;
+    };
+  };
+  saturday: {
+    morning: {
+      start_at: string;
+      end_at: string;
+    };
+    afternoon: {
+      start_at: string;
+      end_at: string;
+    };
+  };
+  sunday: {
+    morning: {
+      start_at: string;
+      end_at: string;
+    };
+    afternoon: {
+      start_at: string;
+      end_at: string;
+    };
+  };
+  owner_id: string;
 };
