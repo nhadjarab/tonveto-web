@@ -27,7 +27,7 @@ const SpecialtiesPage: FunctionComponent = () => {
         try {
             setIsFetching(true)
             const profile = await getProfile()
-            console.log(profile)
+
             setSpecialties(profile?.vetProfile.specialities!)
             setIsFetching(false)
         } catch (err) {

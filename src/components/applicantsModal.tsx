@@ -14,6 +14,7 @@ import { useLayoutEffect } from "react";
 import { acceptClinicApplicant, getClinicApplicants, rejectClinicApplicant } from "@/api/clinic/clinic";
 import { VetProfile } from "@/types/vet";
 import { toast } from "react-toastify";
+import VetModal from "./vetModal";
 
 type Props = {
     setIsModalOpen: (value: boolean) => void
@@ -24,11 +25,12 @@ const ApplicantsModal: FunctionComponent<Props> = ({ setIsModalOpen }) => {
     // Local State  
     const [applicants, setApplicants] = useState<any>([])
     const [isLoading, setIsLoading] = useState(true)
+    const [isProfileOpen, setIsProfileOpen] = useState(false)
+    const [selectedVet, setSelectedVet] = useState<string | null>(null)
 
     // Recoil State
     const [selectedClinic, setSelectedClinic] = useRecoilState(selectedClinicAtom)
 
-    console.log(selectedClinic)
 
     const loadApplicants = async () => {
         try {
@@ -100,7 +102,10 @@ const ApplicantsModal: FunctionComponent<Props> = ({ setIsModalOpen }) => {
                                     const vet: VetProfile = applicant.vet
                                     return <div key={vet.id} className="w-full flex items-center justify-between p-2 border-b border-gray-200">
 
-                                        <div className="flex flex-col">
+                                        <div onClick={() => {
+                                            setSelectedVet(vet.id!)
+                                            setIsProfileOpen(true)
+                                        }} className="flex flex-col">
                                             <span className="text-lg font-medium">{vet.first_name}  {vet.last_name}</span>
                                             <span className="text-sm">{vet.email}</span>
                                             <span className="text-sm">Identification Number : {vet.identification_order}</span>
@@ -116,6 +121,9 @@ const ApplicantsModal: FunctionComponent<Props> = ({ setIsModalOpen }) => {
                                                 }}
                                                 className="p-2 rounded-lg bg-red-500 text-white">Reject</button>
                                         </div>
+
+
+
                                     </div>
                                 })
                             }
@@ -126,6 +134,9 @@ const ApplicantsModal: FunctionComponent<Props> = ({ setIsModalOpen }) => {
             }
 
         </div>
+
+        {isProfileOpen && selectedVet != null && <VetModal setIsModalOpen={setIsProfileOpen} vetId={selectedVet} />}
+
     </div>
 }
 

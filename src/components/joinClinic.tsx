@@ -54,7 +54,6 @@ const JoinClinic = () => {
 
             const result = await joinClinic((selectedClinic as Clinic).id)
 
-            console.log(result)
 
             if (result!.status === 200) {
                 toast.success("Joined clinic successfully")

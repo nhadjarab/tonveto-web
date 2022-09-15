@@ -289,7 +289,7 @@ const WorkingHoursPage: FunctionComponent = () => {
             calendar[key] = JSON.parse(jsonCalendar[key] as any)
         })
 
-        console.log(calendar.monday)
+
 
         if (calendar.monday !== "closed") {
             setIsMonday(true)

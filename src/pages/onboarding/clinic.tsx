@@ -40,7 +40,7 @@ const ClinicOnboarding: NextPage = () => {
 
             const profile = await getProfile()
 
-            console.log(profile)
+
 
 
             if (profile?.vetProfile.profile_complete && profile.vetProfile.is_approved) return router.replace("/dashboard")

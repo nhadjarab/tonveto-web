@@ -64,3 +64,21 @@ export const getVetClinics = async () => {
     console.log(e);
   }
 };
+
+export const getVet = async (vetId : string) => {
+  try {
+    const id = localStorage.getItem("user_id");
+    const token = localStorage.getItem("token");
+
+    const result = await axios.get(`${BACKEND_URL}/vet/${vetId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        logged_in_id: id as string,
+      },
+    });
+
+    return result
+  } catch (e) {
+    toast.error(JSON.stringify((e as any).response.data));
+  }
+};

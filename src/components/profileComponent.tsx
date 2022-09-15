@@ -27,7 +27,7 @@ const ProfileComponent: FunctionComponent<Props> = ({ user }) => {
         }
     }
 
-    console.log(user?.vetProfile)
+
     return <div className="w-full h-full bg-white overflow-scroll p-6 rounded-lg flex flex-col gap-y-2 shadow-lg">
         <div className="self-center flex flex-col items-center justify-center">
             <div className="w-[5rem] h-[5rem] mb-2 relative rounded-lg shadow-lg">
@@ -53,13 +53,16 @@ const ProfileComponent: FunctionComponent<Props> = ({ user }) => {
 
         <span className="font-medium text-lg">Working Hours</span>
         <div className="flex flex-wrap gap-2">
-            <WorkHour title="Monday" day={user?.vetProfile.calendar[0].monday} />
-            <WorkHour title="Tuesday" day={user?.vetProfile.calendar[0].tuesday} />
-            <WorkHour title="Wednesday" day={user?.vetProfile.calendar[0].wednesday} />
-            <WorkHour title="Thursday" day={user?.vetProfile.calendar[0].thursday} />
-            <WorkHour title="Friday" day={user?.vetProfile.calendar[0].friday} />
-            <WorkHour title="Saturday" day={user?.vetProfile.calendar[0].saturday} />
-            <WorkHour title="Sunday" day={user?.vetProfile.calendar[0].sunday} />
+            {user?.vetProfile.calendar.length === 0 ? "Vet does not have working hours" : <>
+                <WorkHour title="Monday" day={user?.vetProfile.calendar[0].monday} />
+                <WorkHour title="Tuesday" day={user?.vetProfile.calendar[0].tuesday} />
+                <WorkHour title="Wednesday" day={user?.vetProfile.calendar[0].wednesday} />
+                <WorkHour title="Thursday" day={user?.vetProfile.calendar[0].thursday} />
+                <WorkHour title="Friday" day={user?.vetProfile.calendar[0].friday} />
+                <WorkHour title="Saturday" day={user?.vetProfile.calendar[0].saturday} />
+                <WorkHour title="Sunday" day={user?.vetProfile.calendar[0].sunday} />
+            </>
+            }
         </div>
 
         <span className="font-medium text-lg">Comments:</span>
@@ -68,7 +71,7 @@ const ProfileComponent: FunctionComponent<Props> = ({ user }) => {
                 return <div key={comment.id} className="w-full h-[5rem] p-2 bg-gray-100 rounded-lg flex flex-col justify-center items-center relative">
                     <span className="font-medium text-sm">{comment.text}
                     </span>
-                    <button onClick={() => handleReportComment(comment.id)} className="absolute top-2 right-2 text-sm text-red-600">
+                    <button onClick={() => handleReportComment(comment.id as string)} className="absolute top-2 right-2 text-sm text-red-600">
                         report comment
                     </button>
                 </div>

@@ -75,7 +75,6 @@ const SettingsPage: FunctionComponent = () => {
     const values = watch()
 
 
-    console.log("Values ", values)
 
     const isDisabled = (): boolean => values.bank_details == "" ||
         values.birth_date == "" ||

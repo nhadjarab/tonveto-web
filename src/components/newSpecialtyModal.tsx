@@ -31,7 +31,7 @@ const NewSpecialtyModal: FunctionComponent<Props> = ({ setIsModalOpen, loadSpeci
     const [isCreating, setIsCreating] = useState(false)
 
 
-    console.log(selectedSpecialty)
+
 
 
     const handleCreateSpecialty = async () => {
@@ -45,7 +45,7 @@ const NewSpecialtyModal: FunctionComponent<Props> = ({ setIsModalOpen, loadSpeci
                 result = await createSpecialty(specialtyName, specialtyPrice)
             }
 
-            console.log()
+
             if (result!.status === 200) {
                 toast.success(selectedSpecialty ? "Specialty updated successfully" : "Specialty created successfully")
                 setSelectedSpecialty(null)
