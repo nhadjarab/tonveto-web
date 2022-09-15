@@ -14,7 +14,15 @@ export type VetProfile = {
   appointments: Appointment[];
   specialities: Specialty[];
   calendar: any;
+  CommentVet : CommentVet[]
 };
+
+export type CommentVet = {
+  id?: string;
+  owner_id: string;
+  vet_id: string;
+  text : string;
+}
 
 export type VetAuth = {
   vetProfile: VetProfile;
@@ -94,6 +102,7 @@ export type MedicalReport = {
 };
 
 export type Clinic = {
+  clinic: Clinic;
   id: string;
   name: string;
   address: string;

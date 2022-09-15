@@ -7,7 +7,8 @@ import { FunctionComponent } from "react"
 // Icons import
 import { AiOutlineCalendar, AiOutlineHourglass } from "react-icons/ai"
 import { BiClinic, BiBriefcase, BiLogOut } from "react-icons/bi"
-import { FiSettings } from "react-icons/fi"
+
+import { FiSettings , FiUser } from "react-icons/fi"
 
 type SideBartProps = {
     active: number,
@@ -51,12 +52,17 @@ const SideBar: FunctionComponent<SideBartProps> = ({ active, setActive }) => {
                 <span>Specialties</span>
             </div>
 
+            <div onClick={() => setActive(4)} className={`flex w-[14rem] items-center gap-x-2 cursor-pointer p-2 hover:bg-gray-200/60 duration-300 transition-all rounded-lg hover:scale-110 ${active === 4 && "bg-gray-200/60 scale-110"}`}>
+                <FiUser className="text-[1.5rem]" />
+                <span>Profile</span>
+            </div>
+
 
         </div>
 
         <div className="flex flex-col gap-y-4">
 
-            <div onClick={() => setActive(4)} className={`flex w-[14rem] items-center gap-x-2 cursor-pointer p-2 hover:bg-gray-200/60 duration-300 transition-all rounded-lg hover:scale-110 ${active === 4 && "bg-gray-200/60 scale-110"} `}>
+            <div onClick={() => setActive(5)} className={`flex w-[14rem] items-center gap-x-2 cursor-pointer p-2 hover:bg-gray-200/60 duration-300 transition-all rounded-lg hover:scale-110 ${active === 5 && "bg-gray-200/60 scale-110"} `}>
                 <FiSettings className="text-[1.5rem]" />
                 <span>Settings</span>
             </div>
