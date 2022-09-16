@@ -69,7 +69,7 @@ export type Appointment = {
   vet_id: string;
   user: User;
   user_id: string;
-  MedicalReport: MedicalReport;
+  MedicalReport: MedicalReport[];
 };
 
 export type Pet = {

@@ -1,6 +1,5 @@
 import { BACKEND_URL } from "@/constants/constants";
-import { VetProfile, VetState } from "@/types/vet";
-import { useQuery } from "@tanstack/react-query";
+
 import axios from "axios";
 import { toast } from "react-toastify";
 

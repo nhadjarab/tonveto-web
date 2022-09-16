@@ -590,11 +590,19 @@ const WorkingHoursPage: FunctionComponent = () => {
 
                     <div className="flex items-center gap-x-2">
                         <span>Afternoon:</span>
-                        <input onChange={(e) => {
+                        <input 
+                        defaultValue={
+                            fridayAfternoonStart
+                        }
+                        onChange={(e) => {
                             setFridayAfternoonStart(e.target.value)
                         }} className="bg-white w-[5rem] outline-none rounded-lg border-2 border-gray-400 " type="time" />
                         <span>to</span>
-                        <input onChange={(e) => {
+                        <input
+                            defaultValue={
+                                fridayAfternoonEnd
+                            }
+                         onChange={(e) => {
                             setFridayAfternoonEnd(e.target.value)
                         }} className="bg-white w-[5rem] outline-none rounded-lg border-2 border-gray-400 " type="time" />
                     </div>
