@@ -30,8 +30,8 @@ const ProfileComponent: FunctionComponent<Props> = ({ user }) => {
 
     return <div className="w-full h-full bg-white overflow-scroll p-6 rounded-lg flex flex-col gap-y-2 shadow-lg">
         <div className="self-center flex flex-col items-center justify-center">
-            <div className="w-[5rem] h-[5rem] mb-2 relative rounded-lg shadow-lg">
-                <Image src={"/public/avatar.png"} alt="profile image" layout="fill" className="rounded-lg" />
+            <div className="w-[3rem] h-[3rem] mb-2 relative rounded-full shadow-lg flex items-center justify-center">
+            <span className="font-medium text-lg">{user?.vetProfile.first_name[0]} {user?.vetProfile.last_name[0]}</span>
             </div>
             <span className="font-medium text-lg">{user?.vetProfile.first_name} {user?.vetProfile.last_name}</span>
             <span className="font-medium text-sm">ID NO: {user?.vetProfile.identification_order}</span>
@@ -93,7 +93,7 @@ const WorkHour: FunctionComponent<WorkHourProps> = ({
     title,
     day
 }) => {
-    return <div className="flex items-center gap-x-2">
+    return <div className="flex items-center gap-x-2 border-2 border-gray-400 p-2 rounded-md">
         <span>{title}:</span>
         <div className="flex flex-col gap-y-1">
             {
