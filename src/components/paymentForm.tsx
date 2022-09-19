@@ -9,6 +9,8 @@ import {
 import { FunctionComponent, useState } from "react";
 import { toast } from "react-toastify";
 
+import {useRouter} from "next/router"
+
 type Props = {
     vet: VetProfile
 }
@@ -19,6 +21,8 @@ const PaymentForm: FunctionComponent<Props> = ({
 
     const stripe = useStripe();
     const elements = useElements();
+
+    const router = useRouter()
 
     const [isLoading, setIsLoading] = useState(false)
 
@@ -51,6 +55,7 @@ const PaymentForm: FunctionComponent<Props> = ({
                 return toast.error("Payment failed");
             }
             toast.success("Payment Successful! Subscription active.");
+            router.push("/dashboard")
             setIsLoading(false)
 
         } catch (err) {

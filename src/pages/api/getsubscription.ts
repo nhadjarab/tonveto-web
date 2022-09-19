@@ -25,10 +25,10 @@ export default async function handler(
       });
 
       if (subscription.data.length === 0)
-        return res.status(404).json({ message: "No subscription found" });
+        return res.json("null");
       res.json(subscription.data[0].status);
     } else {
-      res.status(404).json({ message: "No subscription found" });
+      res.json("null");
     }
   } catch (err) {
     console.error(err);
