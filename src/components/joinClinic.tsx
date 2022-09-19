@@ -72,7 +72,7 @@ const JoinClinic = () => {
 
     return <div className='w-[20rem] b self-center'>
         <Combobox value={selectedClinic} onChange={setSelectedClinic}>
-            <Combobox.Input onChange={(event) => handleSearch(event.target.value)} className="w-full bg-white border-gray-400 border-2 rounded-lg outline-none p-2 text-black" placeholder='Seach Clinic' onChange={(event) => handleSearch(event.target.value)} />
+            <Combobox.Input onChange={(event) => handleSearch(event.target.value)} className="w-full bg-white border-gray-400 border-2 rounded-lg outline-none p-2 text-black" placeholder='Seach Clinic' />
             <Combobox.Options className="bg-white text-black shadow-lg p-2">
                 {clinics.map((clinic: any) => (
                     <Combobox.Option className="cursor-pointer hover:bg-gray-400/30" key={clinic.id} value={clinic}>
