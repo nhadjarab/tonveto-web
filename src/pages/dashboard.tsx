@@ -22,6 +22,7 @@ import WorkingHoursPage from '@/components/workingHoursPage';
 import ClinicsPage from '@/components/clinicsPage';
 import ProfilePage from '@/components/profilePage';
 import LoadingSpinner from '@/components/loadingSpinner';
+import axios from 'axios';
 
 const Dashboard: NextPage = () => {
 
@@ -44,7 +45,16 @@ const Dashboard: NextPage = () => {
 
             setUser(profile!)
 
-            if (profile?.vetProfile.is_approved) return
+            if (profile?.vetProfile.is_approved) {
+                const response = await axios.get(`/api/getsubscription?email=${profile?.vetProfile.email}`)
+
+                if (response.status === 404 || response.data !== "active") return router.push("/billing")
+
+                return setIsLoading(false)
+            }
+
+
+
 
             if (profile?.vetProfile.profile_complete && profile?.vetProfile?.clinics?.length == 0) return router.replace("/onboarding/clinic")
             if (profile?.vetProfile.profile_complete && profile?.vetProfile?.clinics?.length > 0) return router.replace("/onboarding/clinic")
@@ -78,8 +88,8 @@ const Dashboard: NextPage = () => {
         }
     }
 
-    if(isLoading) return <LoadingSpinner />
-    
+    if (isLoading) return <LoadingSpinner />
+
     return <div className="bg-bgColor flex">
         <Head><title>Dashboard</title></Head>
 

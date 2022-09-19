@@ -11,6 +11,8 @@
   "dependencies": {
     "@formkit/auto-animate": "^1.0.0-beta.3",
     "@headlessui/react": "^1.7.0",
+    "@stripe/react-stripe-js": "^1.10.0",
+    "@stripe/stripe-js": "^1.36.0",
     "@tanstack/react-query": "^4.2.3",
     "@tanstack/react-query-devtools": "^4.2.3",
     "@types/moment": "^2.13.0",
@@ -27,6 +29,7 @@
     "react-spinners": "^0.13.4",
     "react-toastify": "^9.0.8",
     "recoil": "^0.7.5",
+    "stripe": "^10.10.0",
     "validator": "^13.7.0"
   },
   "devDependencies": {
