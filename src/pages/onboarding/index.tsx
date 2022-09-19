@@ -87,17 +87,22 @@ const Onboarding: NextPage = () => {
         try {
 
             const result = await updateProfile(newProfile)
-            setUser({
-                vetProfile: result!,
-                vetRating: user!.vetRating
-            })
 
-            toast.success("Profile updated successfully")
+            if (result && result.status === 200) {
 
-            const vetClinics = await getVetClinics()
-            if (vetClinics.length == 0) {
-                router.push("/onboarding/clinic")
+                setUser({
+                    vetProfile: result.data!,
+                    vetRating: user!.vetRating
+                })
+
+                toast.success("Profile updated successfully")
+
+                const vetClinics = await getVetClinics()
+                if (vetClinics.length == 0) {
+                    router.push("/onboarding/clinic")
+                }
             }
+
 
         } catch (error) {
             console.log(error)

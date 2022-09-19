@@ -19,7 +19,7 @@ type settingsForm = {
     birth_date: string;
     phone_number: string;
     bank_details: string;
-    identification_order: string
+
 
 }
 
@@ -79,18 +79,17 @@ const SettingsPage: FunctionComponent = () => {
     const isDisabled = (): boolean => values.bank_details == "" ||
         values.birth_date == "" ||
         values.first_name == "" ||
-        values.identification_order == "" ||
+
         values.last_name == "" ||
         values.phone_number == "" ||
         values.email == "" ||
         isEmail(values.email ? values.email : "") == false ||
-       ( values.email == userProfile?.email &&
-        values.first_name == userProfile?.first_name &&
-        values.last_name == userProfile?.last_name &&
-        values.birth_date == userProfile?.birth_date &&
-        values.phone_number == userProfile?.phone_number &&
-        values.bank_details == userProfile?.bank_details &&
-        values.identification_order == userProfile?.identification_order)
+        (values.email == userProfile?.email &&
+            values.first_name == userProfile?.first_name &&
+            values.last_name == userProfile?.last_name &&
+            values.birth_date == userProfile?.birth_date &&
+            values.phone_number == userProfile?.phone_number &&
+            values.bank_details == userProfile?.bank_details)
 
 
 
@@ -106,10 +105,13 @@ const SettingsPage: FunctionComponent = () => {
 
             const result = await updateProfile(newProfile)
 
+            if (result && result.status === 200) {
 
-            toast.success("Profile updated successfully")
-            await loadProfile()
 
+                toast.success("Profile updated successfully")
+                await loadProfile()
+
+            }
 
         } catch (error) {
             console.log(error)
@@ -212,18 +214,7 @@ const SettingsPage: FunctionComponent = () => {
                     {errors.bank_details && (
                         <span className="text-red-600">{errors.bank_details.message}</span>
                     )}
-                    {/* Identification Order */}
-                    <label className={`${labelCalsseName}`}>Identification Order:</label>
-                    <input defaultValue={userProfile ? userProfile.identification_order : ""} className={`${inputClassName} w-[26rem]`} {...register("identification_order", {
-                        required: {
-                            value: true,
-                            message: "Field is required"
-                        },
 
-                    })} type="number" placeholder='11111111' />
-                    {errors.identification_order && (
-                        <span className="text-red-600">{errors.identification_order.message}</span>
-                    )}
                     <button disabled={isDisabled()}
                         className={`bg-black text-white p-2 rounded-lg ${isDisabled() && "bg-gray-400 cursor-not-allowed"}`}>Submit</button>
                 </div>

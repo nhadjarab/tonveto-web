@@ -31,7 +31,7 @@ const ProfileComponent: FunctionComponent<Props> = ({ user }) => {
     return <div className="w-full h-full bg-white overflow-scroll p-6 rounded-lg flex flex-col gap-y-2 shadow-lg">
         <div className="self-center flex flex-col items-center justify-center">
             <div className="w-[3rem] h-[3rem] mb-2 relative rounded-full shadow-lg flex items-center justify-center">
-            <span className="font-medium text-lg">{user?.vetProfile.first_name[0]} {user?.vetProfile.last_name[0]}</span>
+            <span className="font-medium text-lg">{user?.vetProfile.first_name[0]}{user?.vetProfile.last_name[0]}</span>
             </div>
             <span className="font-medium text-lg">{user?.vetProfile.first_name} {user?.vetProfile.last_name}</span>
             <span className="font-medium text-sm">ID NO: {user?.vetProfile.identification_order}</span>

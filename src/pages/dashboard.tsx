@@ -21,12 +21,14 @@ import SettingsPage from '@/components/settingsPage';
 import WorkingHoursPage from '@/components/workingHoursPage';
 import ClinicsPage from '@/components/clinicsPage';
 import ProfilePage from '@/components/profilePage';
+import LoadingSpinner from '@/components/loadingSpinner';
 
 const Dashboard: NextPage = () => {
 
     // Recoil State
     const [user, setUser] = useRecoilState(userState)
     const [active, setActive] = useState(0)
+    const [isLoading, setIsLoading] = useState(true)
 
     // Router
     const router = useRouter();
@@ -49,7 +51,7 @@ const Dashboard: NextPage = () => {
             if (!profile?.vetProfile.profile_complete) return router.push("/onboarding")
 
 
-
+            setIsLoading(false)
 
 
         })()
@@ -76,6 +78,8 @@ const Dashboard: NextPage = () => {
         }
     }
 
+    if(isLoading) return <LoadingSpinner />
+    
     return <div className="bg-bgColor flex">
         <Head><title>Dashboard</title></Head>
 

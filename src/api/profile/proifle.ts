@@ -39,7 +39,7 @@ export const updateProfile = async (profile: any) => {
       }
     );
 
-    return result.data as VetProfile;
+    return result;
   } catch (e) {
     toast.error(JSON.stringify((e as any).response.data));
     console.log(e);

@@ -22,6 +22,7 @@ import NewAppointmentModal from "./newAppointmentModal";
 import { useRecoilState } from "recoil"
 import { selectedAppointmentAtom } from "@/recoil/atoms"
 import MedicalReportModal from "./medicalReportModal";
+import LoadingSpinner from "./loadingSpinner";
 
 const AppointmentsPage: FunctionComponent = () => {
     const [appointments, setAppointments] = useState<Appointment[]>([])
@@ -105,6 +106,8 @@ const AppointmentsPage: FunctionComponent = () => {
         setUpcomingAppointments(upcomingTimeSlots)
     }, [appointments])
 
+
+    if(isFetching) return <LoadingSpinner />
 
     return <div className="w-[calc(100%-18rem)] h-screen flex flex-col text-black p-10">
         <div className="flex items-center justify-between">
