@@ -48,7 +48,9 @@ const Dashboard: NextPage = () => {
             if (profile?.vetProfile.is_approved) {
                 const response = await axios.get(`/api/getsubscription?email=${profile?.vetProfile.email}`)
 
-                if (response.status === 200 || response.data !== "active") return router.push("/billing")
+                console.log(response.data !== "active")
+
+                if (response.data !== "active") return router.replace("/billing")
 
                 return setIsLoading(false)
             }

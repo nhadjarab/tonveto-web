@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 // React import
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 
 // Dependencies import
 import { Elements } from "@stripe/react-stripe-js";
@@ -40,17 +40,19 @@ const Billing: NextPage = () => {
 
             setVet(profile!)
 
-            const response = await axios.get(`/api/getsubscription?email=${vet?.vetProfile.email}`)
+            const response = await axios.get(`/api/getsubscription?email=${profile?.vetProfile.email}`)
 
-            console.log(response)
+            console.log(response.data === "active")
 
-            if (response.status === 200 && response.data === "active") return router.push("/dashboard")
+            if (response.data === "active") return router.replace("/dashboard")
 
 
             setIsLoading(false)
         })()
     }, [])
 
+
+  
     if (isLoading) return <LoadingSpinner />
 
 
