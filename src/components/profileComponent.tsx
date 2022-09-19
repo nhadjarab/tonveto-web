@@ -34,7 +34,7 @@ const ProfileComponent: FunctionComponent<Props> = ({ user }) => {
                 <Image src={"/public/avatar.png"} alt="profile image" layout="fill" className="rounded-lg" />
             </div>
             <span className="font-medium text-lg">{user?.vetProfile.first_name} {user?.vetProfile.last_name}</span>
-            <span className="font-medium text-sm">ID NO: {user?.vetProfile.id}</span>
+            <span className="font-medium text-sm">ID NO: {user?.vetProfile.identification_order}</span>
             {user?.vetRating._avg.rating != null && <span>{user?.vetRating._avg.rating}/5</span>}
         </div>
 

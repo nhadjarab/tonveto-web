@@ -63,7 +63,7 @@ const CreateClinic = () => {
 
             if (result!.status == 200) {
 
-                toast.success("Profile updated successfully")
+                toast.success("Clinic created successfully")
 
                 const profile = await getProfile()
                 if (profile?.vetProfile.profile_complete && profile?.vetProfile?.clinics?.length > 0) return router.replace("/onboarding/approval")

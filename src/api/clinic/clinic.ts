@@ -127,3 +127,53 @@ export const rejectClinicApplicant = async (
     console.log(e);
   }
 };
+
+export const getClinic = async (
+  clinicId: string,
+) => {
+  try {
+    const id = localStorage.getItem("user_id");
+    const token = localStorage.getItem("token");
+
+    const result = await axios.get(
+      `${BACKEND_URL}/clinic/${clinicId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          logged_in_id: id as string,
+        },
+      }
+    );
+
+    return result;
+  } catch (e) {
+    toast.error(JSON.stringify((e as any).response.data));
+    console.log(e);
+  }
+};
+
+export const removeVetFromClinic = async (
+  vet_id : string,
+  clinic_id : string
+) => {
+  try {
+    const id = localStorage.getItem("user_id");
+    const token = localStorage.getItem("token");
+
+    const result = await axios.delete(
+      `${BACKEND_URL}/clinic/vet/${vet_id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          logged_in_id: id as string,
+          clinic_id: clinic_id,
+        },
+      }
+    );
+
+    return result;
+  } catch (e) {
+    toast.error(JSON.stringify((e as any).response.data));
+    console.log(e);
+  }
+};
