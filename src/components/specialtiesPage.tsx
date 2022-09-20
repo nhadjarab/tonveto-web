@@ -72,7 +72,7 @@ const SpecialtiesPage: FunctionComponent = () => {
                     />
                     <span className="font-medium">You do not have any specialties yet!</span>
                     <button disabled={isFetching} onClick={loadSpecialties} className={`  p-2 bg-black rounded-lg text-white ${isFetching && "bg-gray-400 cursor-not-allowed"}`}>{isFetching ? "Loading..." : "Refresh"}</button>
-                </div> : <div ref={parent} className="mt-4 w-full grid grid-flow-col auto-cols-max gap-4">
+                </div> : <div ref={parent} className="mt-4 w-full flex gap-4 flex-wrap">
                     {
                         specialties.map((specialty, index) => {
                             return <SpecialtyComponent key={specialty.id} specialty={specialty} setIsModalOpen={setIsModalOpen} loadSpecialties={loadSpecialties} />

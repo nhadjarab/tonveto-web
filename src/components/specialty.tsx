@@ -13,6 +13,7 @@ import { Specialty } from "@/types/vet";
 
 // API iport
 import { deleteSpecialty } from "@/api/specialty/specialty";
+import AreYouSurePopUp from "./areYouSurePopUp";
 
 
 type Props = {
@@ -27,6 +28,7 @@ type Props = {
 const SpecialtyComponent: FunctionComponent<Props> = ({ specialty, loadSpecialties , setIsModalOpen }) => {
     // Local state
     const [isLoading, setIsLoading] = useState(false)
+    const [isDialogOpen, setIsDialogOpen] = useState(false)
 
     // Recoil state
     const [_selectedSpecialty, setSelectedSpecialty] = useRecoilState(selectedSpecialtyAtom)
@@ -64,8 +66,14 @@ const SpecialtyComponent: FunctionComponent<Props> = ({ specialty, loadSpecialti
 
         <div className="flex w-full gap-x-2">
             <button onClick={handleUpdateSpecialty} disabled={isLoading} className={`p-1 border-2 border-black rounded-lg ${isLoading && "bg-gray-400 cursor-not-allowed"}`}>Update</button>
-            <button onClick={handleDeleteSpecialty} disabled={isLoading} className={`p-1 bg-red-600 text-white rounded-lg ${isLoading && "bg-gray-400 cursor-not-allowed"}`}>Delete</button>
+            <button onClick={() => {
+                setIsDialogOpen(true)
+            }} disabled={isLoading} className={`p-1 bg-red-600 text-white rounded-lg ${isLoading && "bg-gray-400 cursor-not-allowed"}`}>Delete</button>
         </div>
+
+        {
+            isDialogOpen && <AreYouSurePopUp setIsModalOpen={setIsDialogOpen}  onSubmit={handleDeleteSpecialty}/>
+        }
 
     </div>
 }
