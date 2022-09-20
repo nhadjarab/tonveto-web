@@ -23,6 +23,7 @@ import { useRecoilState } from "recoil"
 import { selectedAppointmentAtom } from "@/recoil/atoms"
 import MedicalReportModal from "./medicalReportModal";
 import LoadingSpinner from "./loadingSpinner";
+import AreYouSurePopUp from "./areYouSurePopUp";
 
 const AppointmentsPage: FunctionComponent = () => {
     const [appointments, setAppointments] = useState<Appointment[]>([])
@@ -31,6 +32,7 @@ const AppointmentsPage: FunctionComponent = () => {
     const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false)
     const [isNewAppointmentModalOpen, setIsNewAppointmentModalOpen] = useState(false)
     const [isMedicalReportModalOpen, setIsMedicalReportModalOpen] = useState(false)
+    const [isDialogOpen, setIsDialogOpen] = useState(false)
 
     const [closedAppointments, setClosedAppointments] = useState<Appointment[]>([])
     const [upcomingAppointments, setUpcomingAppointments] = useState<Appointment[]>([])
@@ -107,7 +109,7 @@ const AppointmentsPage: FunctionComponent = () => {
     }, [appointments])
 
 
-    if(isFetching) return <LoadingSpinner />
+    if (isFetching) return <LoadingSpinner />
 
     return <div className="w-[calc(100%-18rem)] h-screen flex flex-col text-black p-10">
         <div className="flex items-center justify-between">
@@ -200,8 +202,16 @@ const AppointmentsPage: FunctionComponent = () => {
                                                     }} className="font-medium p-2 rounded-lg border-2 text-sm border-black ">
                                                         Update Appointment
                                                     </button>
+
+                                                    {
+                                                        isDialogOpen && <AreYouSurePopUp setIsModalOpen={setIsDialogOpen} onSubmit={async () => {
+                                                           await handleCancelAppointment(appointment.id)
+                                                        }} />
+                                                    }
+
                                                     <button onClick={async () => {
-                                                        handleCancelAppointment(appointment.id)
+                                                        setIsDialogOpen(true)
+
                                                     }} className="font-medium p-2 rounded-lg bg-black text-sm text-white ">
                                                         Cancel Appointment
                                                     </button>
@@ -269,7 +279,7 @@ const AppointmentsPage: FunctionComponent = () => {
                                                         setSelectedAppointment(appointment)
                                                         setIsMedicalReportModalOpen(true)
                                                     }} className="font-medium p-2 rounded-lg bg-black text-sm text-white ">
-                                                      { appointment.MedicalReport.length === 0 ? "Add Medical report" : "Update Medical report"}
+                                                        {appointment.MedicalReport.length === 0 ? "Add Medical report" : "Update Medical report"}
                                                     </button>
                                                 </div>
                                             </div>

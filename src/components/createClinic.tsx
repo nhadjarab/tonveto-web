@@ -7,6 +7,7 @@ import { useState } from 'react';
 // Dependencies import
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import validator from 'validator';
 
 
 // API import
@@ -21,6 +22,7 @@ type CreateClinicForm = {
     address: string;
     city: string;
     country: string;
+    zip_code: string;
     phone_number: string;
 }
 
@@ -44,6 +46,7 @@ const CreateClinic = () => {
             address: "",
             city: "",
             country: "",
+            zip_code: "",
             phone_number: "",
         }
     });
@@ -142,6 +145,18 @@ const CreateClinic = () => {
             </div>
         </div>
 
+        {/* Address */}
+        <label className={`${labelCalsseName}`}>Zip Code:</label>
+        <input className={`${inputClassName} w-[26rem]`} {...register("zip_code", {
+            required: {
+                value: true,
+                message: "Zip Code is required"
+            },
+
+        })} type="text" placeholder='34978' />
+        {errors.zip_code && (
+            <span className="text-red-600">{errors.zip_code.message}</span>
+        )}
 
         {/* Phone number */}
 
@@ -151,6 +166,13 @@ const CreateClinic = () => {
                 value: true,
                 message: "Phone number is required"
             },
+            minLength: {
+                value: 10,
+                message: "Phone number must be at least 10 characters"
+            },
+            validate: (_) => {
+                if (!validator.isMobilePhone(values.phone_number)) return "Phone number is invalid"
+            }
 
         })} type="tel" placeholder='555-5555-555' />
         {errors.phone_number && (

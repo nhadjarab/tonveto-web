@@ -11,7 +11,7 @@ import { useLayoutEffect, useState } from 'react';
 import LoadingSpinner from '@/components/loadingSpinner';
 
 // API import
-import { getProfile } from '@/api/profile/proifle';
+import { getProfile, getVetClinics } from '@/api/profile/proifle';
 
 
 const ApprovalOnboarding: NextPage = () => {
@@ -34,10 +34,11 @@ const ApprovalOnboarding: NextPage = () => {
 
             const profile = await getProfile()
 
+            const clinics = await getVetClinics()
 
             if (profile?.vetProfile.profile_complete && profile.vetProfile.is_approved) return router.replace("/dashboard")
 
-            if (profile?.vetProfile.profile_complete && profile?.vetProfile?.clinics?.length == 0) return router.replace("/onboarding/clinic")
+            if (profile?.vetProfile.profile_complete && clinics?.length == 0) return router.replace("/onboarding/clinic")
 
             if (!profile?.vetProfile.profile_complete) return router.replace("/onboarding")
 
@@ -64,6 +65,14 @@ const ApprovalOnboarding: NextPage = () => {
 
                     <Image layout='fill' className='w-[30px]' src="/success.svg" alt="Success" />
                 </div>
+
+                <button onClick={() => {
+                    localStorage.removeItem("token")
+                    localStorage.removeItem("user_id")
+                    router.replace("/auth")
+                }} className='p-2 bg-black rounded-lg text-white'>
+                    Logout
+                </button>
             </div>
 
         </div>

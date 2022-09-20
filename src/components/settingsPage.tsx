@@ -9,7 +9,10 @@ import { Appointment, Specialty, VetProfile } from "@/types/vet";
 import { useForm } from 'react-hook-form';
 import isEmail from "validator/lib/isEmail";
 import { toast } from "react-toastify";
+import validator from 'validator';
+
 import LoadingSpinner from "./loadingSpinner";
+import moment from "moment";
 
 
 type settingsForm = {
@@ -99,6 +102,7 @@ const SettingsPage: FunctionComponent = () => {
 
         const newProfile = {
             ...data,
+            identification_order : userProfile?.identification_order,
         }
 
         try {
@@ -141,6 +145,9 @@ const SettingsPage: FunctionComponent = () => {
                                     value: true,
                                     message: "First Name is required"
                                 },
+                                validate: (_) => {
+                                    return validator.isAlpha(values.first_name) || "First Name must be alphabetic"
+                                }
 
                             })} placeholder='John' />
                             {errors.first_name && (
@@ -154,6 +161,9 @@ const SettingsPage: FunctionComponent = () => {
                                     value: true,
                                     message: "Last Name is required"
                                 },
+                                validate: (_) => {
+                                    return validator.isAlpha(values.last_name) || "Last Name must be alphabetic"
+                                }
 
                             })} placeholder='Doe' />
                             {errors.last_name && (
@@ -169,6 +179,9 @@ const SettingsPage: FunctionComponent = () => {
                             value: true,
                             message: "Email is required"
                         },
+                        validate: (_) => {
+                            return validator.isEmail(values.email) || "Email is not valid"
+                        }
 
 
                     })} type="email" />
@@ -184,6 +197,9 @@ const SettingsPage: FunctionComponent = () => {
                             value: true,
                             message: "Birth Date is required"
                         },
+                        validate: (_) => {
+                            return validator.isDate(values.birth_date) && moment(values.birth_date).isAfter(moment("1922")) && moment(values.birth_date).isBefore(moment("2005")) || "Birth Date must be a valid date"
+                        }
 
                     })} type="date" />
                     {errors.birth_date && (
@@ -197,6 +213,13 @@ const SettingsPage: FunctionComponent = () => {
                             value: true,
                             message: "Phone number is required"
                         },
+                        minLength: {
+                            value: 10,
+                            message: "Phone number must be 10 digits"
+                        },
+                        validate: (_) => {
+                            return validator.isMobilePhone(values.phone_number) || "Invalid phone number"
+                        }
 
                     })} type="tel" placeholder='555-5555-555' />
                     {errors.phone_number && (
@@ -209,8 +232,11 @@ const SettingsPage: FunctionComponent = () => {
                             value: true,
                             message: "Iban is required"
                         },
+                          validate: (_) => {
+                            return validator.isIBAN(values.bank_details) || "Invalid IBAN"
+                        }
 
-                    })} type="number" placeholder='12344567878976' />
+                    })} type="text" placeholder='12344567878976' />
                     {errors.bank_details && (
                         <span className="text-red-600">{errors.bank_details.message}</span>
                     )}

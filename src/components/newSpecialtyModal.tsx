@@ -81,8 +81,12 @@ const NewSpecialtyModal: FunctionComponent<Props> = ({ setIsModalOpen, loadSpeci
             }} className="w-full outline-none border-[1px] bg-white border-black rounded-lg p-2 mb-4" placeholder="Specialty" />
 
             <label>Price:</label>
-            <input defaultValue={selectedSpecialty ? selectedSpecialty.price : ""} onChange={(e) => {
-                setSpecialtyPrice(e.target.value)
+            <input defaultValue={selectedSpecialty ? selectedSpecialty.price : ""}
+            onInput={(e) => {
+                e.target.value = Math.abs(parseFloat(e.target.value)).toString()
+            }}
+             onChange={(e) => {
+                setSpecialtyPrice(Math.abs(parseFloat(e.target.value)).toString())
             }} className="w-full outline-none border-[1px] bg-white border-black rounded-lg p-2 mb-4" placeholder="50€" type="number" />
 
             <button onClick={handleCreateSpecialty} disabled={specialtyName.length === 0 || specialtyPrice.length === 0 || isCreating || (specialtyName === selectedSpecialty?.name && specialtyPrice === selectedSpecialty?.price.toString())} className={`w-full bg-black text-white rounded-lg p-2 ${specialtyName.length === 0 || specialtyPrice.length === 0 || isCreating || (specialtyName === selectedSpecialty?.name && specialtyPrice === selectedSpecialty?.price.toString()) ? "bg-gray-400 cursor-not-allowed" : ""}`}>{isCreating ? "Loading..." : selectedSpecialty ? "Update Specialty" : "Add new specialty"}</button>

@@ -244,7 +244,7 @@ const WorkingHoursPage: FunctionComponent = () => {
 
 
         if (!((isMonday && (moment(`${date} ${mondayMorningStart}`).isBefore(`${date} ${mondayMorningEnd}`) && moment(`${date} ${mondayAfternoonStart}`).isBefore(`${date} ${mondayAfternoonEnd}`) && moment(`${date} ${mondayMorningStart}`).isBefore(`${date} ${mondayAfternoonStart}`) && moment(`${date} ${mondayMorningEnd}`).isBefore(`${date} ${mondayAfternoonEnd}`) &&
-            moment(`${date} ${mondayMorningEnd}`).isBefore(`${date} ${mondayAfternoonStart}`) && moment(`${date} ${mondayMorningStart}`).isBefore(`${date} ${mondayAfternoonEnd}`))) ||
+            moment(`${date} ${tuesdayMorningEnd}`).isBefore(`${date} ${tuesdayAfternoonStart}`) && moment(`${date} ${tuesdayMorningStart}`).isBefore(`${date} ${tuesdayAfternoonEnd}`))) ||
             (isTuesday && (moment(`${date} ${tuesdayMorningStart}`).isBefore(`${date} ${tuesdayMorningEnd}`) && moment(`${date} ${tuesdayAfternoonStart}`).isBefore(`${date} ${tuesdayAfternoonEnd}`) && moment(`${date} ${tuesdayMorningStart}`).isBefore(`${date} ${tuesdayAfternoonStart}`) && moment(`${date} ${tuesdayMorningEnd}`).isBefore(`${date} ${tuesdayAfternoonEnd}`) &&
                 moment(`${date} ${tuesdayMorningEnd}`).isBefore(`${date} ${tuesdayAfternoonStart}`) && moment(`${date} ${tuesdayMorningStart}`).isBefore(`${date} ${tuesdayAfternoonEnd}`))) ||
             (isWednesday && (moment(`${date} ${wednesdayMorningStart}`).isBefore(`${date} ${wednesdayMorningEnd}`) && moment(`${date} ${wednesdayAfternoonStart}`).isBefore(`${date} ${wednesdayAfternoonEnd}`) && moment(`${date} ${wednesdayMorningStart}`).isBefore(`${date} ${wednesdayAfternoonStart}`) && moment(`${date} ${wednesdayMorningEnd}`).isBefore(`${date} ${wednesdayAfternoonEnd}`) &&
@@ -399,8 +399,9 @@ const WorkingHoursPage: FunctionComponent = () => {
                                 defaultValue={
                                     mondayAfternoonEnd
                                 }
+                                
                                 onChange={(e) => {
-                                    setMondayAfternoonEnd(e.target.value)
+                                    setMondayAfternoonEnd(e.target.value === "00:00" ? "23:59" : e.target.value)
                                 }} className="bg-white w-[5rem] outline-none rounded-lg border-2 border-gray-400 " type="time" />
                         </div>
                     </div>}
@@ -450,7 +451,7 @@ const WorkingHoursPage: FunctionComponent = () => {
                                 tuesdayAfternoonEnd
                             }
                             onChange={(e) => {
-                                setTuesdayAfternoonEnd(e.target.value)
+                                setTuesdayAfternoonEnd(e.target.value === "00:00" ? "23:59" : e.target.value)
                             }} className="bg-white w-[5rem] outline-none rounded-lg border-2 border-gray-400 " type="time" />
                     </div>
                 </div>}
@@ -503,7 +504,7 @@ const WorkingHoursPage: FunctionComponent = () => {
                                 wednesdayAfternoonEnd
                             }
                             onChange={(e) => {
-                                setWednesdayAfternoonEnd(e.target.value)
+                                setWednesdayAfternoonEnd(e.target.value === "00:00" ? "23:59" : e.target.value)
                             }} className="bg-white w-[5rem] outline-none rounded-lg border-2 border-gray-400 " type="time" />
                     </div>
                 </div>}
@@ -553,7 +554,7 @@ const WorkingHoursPage: FunctionComponent = () => {
                                 thursdayAfternoonEnd
                             }
                             onChange={(e) => {
-                                setThursdayAfternoonEnd(e.target.value)
+                                setThursdayAfternoonEnd(e.target.value === "00:00" ? "23:59" : e.target.value)
                             }} className="bg-white w-[5rem] outline-none rounded-lg border-2 border-gray-400 " type="time" />
                     </div>
                 </div>}
@@ -590,21 +591,21 @@ const WorkingHoursPage: FunctionComponent = () => {
 
                     <div className="flex items-center gap-x-2">
                         <span>Afternoon:</span>
-                        <input 
-                        defaultValue={
-                            fridayAfternoonStart
-                        }
-                        onChange={(e) => {
-                            setFridayAfternoonStart(e.target.value)
-                        }} className="bg-white w-[5rem] outline-none rounded-lg border-2 border-gray-400 " type="time" />
+                        <input
+                            defaultValue={
+                                fridayAfternoonStart
+                            }
+                            onChange={(e) => {
+                                setFridayAfternoonStart(e.target.value)
+                            }} className="bg-white w-[5rem] outline-none rounded-lg border-2 border-gray-400 " type="time" />
                         <span>to</span>
                         <input
                             defaultValue={
                                 fridayAfternoonEnd
                             }
-                         onChange={(e) => {
-                            setFridayAfternoonEnd(e.target.value)
-                        }} className="bg-white w-[5rem] outline-none rounded-lg border-2 border-gray-400 " type="time" />
+                            onChange={(e) => {
+                                setFridayAfternoonEnd(e.target.value === "00:00" ? "23:59" : e.target.value)
+                            }} className="bg-white w-[5rem] outline-none rounded-lg border-2 border-gray-400 " type="time" />
                     </div>
                 </div>}
 
@@ -653,7 +654,7 @@ const WorkingHoursPage: FunctionComponent = () => {
                                 saturdayAfternoonEnd
                             }
                             onChange={(e) => {
-                                setSaturdayAfternoonEnd(e.target.value)
+                                setSaturdayAfternoonEnd(e.target.value === "00:00" ? "23:59" : e.target.value)
                             }} className="bg-white w-[5rem] outline-none rounded-lg border-2 border-gray-400 " type="time" />
                     </div>
                 </div>}
@@ -703,7 +704,7 @@ const WorkingHoursPage: FunctionComponent = () => {
                                 sundayAfternoonEnd
                             }
                             onChange={(e) => {
-                                setSundayAfternoonEnd(e.target.value)
+                                setSundayAfternoonEnd(e.target.value === "00:00" ? "23:59" : e.target.value)
                             }} className="bg-white w-[5rem] outline-none rounded-lg border-2 border-gray-400 " type="time" />
                     </div>
                 </div>}

@@ -10,6 +10,7 @@ export type VetProfile = {
   is_approved?: boolean;
   type?: string;
   bank_details: string;
+  balance : number;
   clinics: Clinic[];
   appointments: Appointment[];
   specialities: Specialty[];

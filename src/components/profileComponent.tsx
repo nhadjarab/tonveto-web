@@ -28,6 +28,9 @@ const ProfileComponent: FunctionComponent<Props> = ({ user }) => {
     }
 
 
+
+    console.log(user)
+
     return <div className="w-full h-full bg-white overflow-scroll p-6 rounded-lg flex flex-col gap-y-2 shadow-lg">
         <div className="self-center flex flex-col items-center justify-center">
             <div className="w-[3rem] h-[3rem] mb-2 relative rounded-full shadow-lg flex items-center justify-center">
@@ -35,6 +38,7 @@ const ProfileComponent: FunctionComponent<Props> = ({ user }) => {
             </div>
             <span className="font-medium text-lg">{user?.vetProfile.first_name} {user?.vetProfile.last_name}</span>
             <span className="font-medium text-sm">ID NO: {user?.vetProfile.identification_order}</span>
+            <span className="font-medium text-sm">Wallet: €{user?.vetProfile.balance}</span>
             {user?.vetRating._avg.rating != null && <span>{user?.vetRating._avg.rating}/5</span>}
         </div>
 
@@ -66,13 +70,19 @@ const ProfileComponent: FunctionComponent<Props> = ({ user }) => {
         </div>
 
         <span className="font-medium text-lg">Comments:</span>
-        {
+        {   
             user?.vetProfile.CommentVet.length === 0 ? "No comments" : user?.vetProfile.CommentVet.map((comment) => {
+
+                console.log(comment)
+
                 return <div key={comment.id} className="w-full h-[5rem] p-2 bg-gray-100 rounded-lg flex flex-col justify-center items-center relative">
                     <span className="font-medium text-sm">{comment.text}
                     </span>
                     <button onClick={() => handleReportComment(comment.id as string)} className="absolute top-2 right-2 text-sm text-red-600">
                         report comment
+                    </button>
+                    <button  className="absolute top-2 left-2 text-sm">
+                        {comment.owner.first_name} {comment.owner.last_name}
                     </button>
                 </div>
             }
@@ -100,7 +110,7 @@ const WorkHour: FunctionComponent<WorkHourProps> = ({
                 JSON.parse(day) === "closed" ? "closed" :
                     <>
                         <span>{JSON.parse(day).morning.start_at}- {JSON.parse(day).morning.end_at}</span>
-                        <span>{JSON.parse(day).morning.start_at}- {JSON.parse(day).morning.end_at}</span>
+                        <span>{JSON.parse(day).afternoon.start_at}- {JSON.parse(day).afternoon.end_at}</span>
                     </>
             }
         </div>

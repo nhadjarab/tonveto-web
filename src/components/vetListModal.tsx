@@ -12,6 +12,7 @@ import { selectedClinicAtom } from "@/recoil/atoms";
 import { getClinic, removeVetFromClinic } from "@/api/clinic/clinic";
 import { VetProfile } from "@/types/vet";
 import { toast } from "react-toastify";
+import AreYouSurePopUp from "./areYouSurePopUp";
 
 
 type Props = {
@@ -23,6 +24,7 @@ const VetsModal: FunctionComponent<Props> = ({ setIsModalOpen }) => {
 
     // Local State
     const [clinic, setClinic] = useState<any>(null)
+    const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false)
     // Recoil State
     const [selectedClinic, setSelectedClinic] = useRecoilState(selectedClinicAtom)
 
@@ -86,9 +88,14 @@ const VetsModal: FunctionComponent<Props> = ({ setIsModalOpen }) => {
                                 <div className="flex items-center gap-x-2">
                                     <If condition={vetId !== vet.id}>
                                         <Then>
+                                            {
+                                                isDialogOpen && <AreYouSurePopUp setIsModalOpen={setIsDialogOpen} onSubmit={async () => {
+                                                    handleRemoveVet(vet.id!)
+                                                }} />
+                                            }
                                             <button
                                                 onClick={async () => {
-                                                    handleRemoveVet(vet.id!)
+                                                    setIsDialogOpen(true)
                                                 }}
                                                 className="p-2 rounded-lg bg-red-500 text-white">Remove vet</button>
                                         </Then>

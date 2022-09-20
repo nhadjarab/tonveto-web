@@ -20,8 +20,8 @@ const UpdateAppointmentModal: FunctionComponent<Props> = ({ setIsModalOpen, load
     const [selectedAppointment, setSelectedAppointment] = useRecoilState(selectedAppointmentAtom);
 
 
-    const [date, setDate] = useState('');
-    const [time, setTime] = useState('');
+    const [date, setDate] = useState(selectedAppointment!.date);
+    const [time, setTime] = useState(selectedAppointment!.time);
 
     const validateDate = (): boolean => {
         // Check if date and hour are in the past
@@ -39,11 +39,14 @@ const UpdateAppointmentModal: FunctionComponent<Props> = ({ setIsModalOpen, load
 
 
 
+
+
+
     const handleSubmit = async () => {
         if (!validateDate()) toast.error("You can't close a timeslot in the past")
 
         try {
-            const result = await updateAppointment(date, time, selectedAppointment.user_id, selectedAppointment.pet_id, selectedAppointment.id)
+            const result = await updateAppointment(date, time, selectedAppointment!.user_id, selectedAppointment!.pet_id, selectedAppointment!.id)
 
             if (result && result.status === 200) {
                 toast.success("Appointment updated successfully")
@@ -75,12 +78,12 @@ const UpdateAppointmentModal: FunctionComponent<Props> = ({ setIsModalOpen, load
             <div className="h-full w-full flex flex-col items-center justify-center">
                 <div className="flex gap-x-4 items-center">
                     <input
-                        defaultValue={selectedAppointment.date}
+                        defaultValue={selectedAppointment!.date}
                         onChange={(e) => {
                             setDate(e.target.value)
                         }} type="date" className="bg-white p-2 w-[20rem] border-gray-400 border-[1px] rounded-lg outline-none focus:bourder-2 " />
                     <input
-                        defaultValue={selectedAppointment.time}
+                        defaultValue={selectedAppointment!.time}
                         onChange={(e) => {
                             setTime(e.target.value)
                         }}
@@ -91,8 +94,8 @@ const UpdateAppointmentModal: FunctionComponent<Props> = ({ setIsModalOpen, load
                 <button
                     onClick={handleSubmit}
                     disabled={
-                        !validateDate() || date === "" || time === "" || (date === appointment.date && time === appointment.time)
-                    } className={`mt-10 rounded-lg text-white bg-black p-2 w-full ${!validateDate() || date === "" || time === "" || (date === appointment.date && time === appointment.time) ? "bg-gray-400 cursor-not-allowed" : ""}`}>Submit</button>
+                        !validateDate() || date === "" || time === "" || (date === selectedAppointment!.date && time === selectedAppointment!.time)
+                    } className={`mt-10 rounded-lg text-white bg-black p-2 w-full ${!validateDate() || date === "" || time === "" || (date == selectedAppointment!.date && time == selectedAppointment!.time) ? "bg-gray-400 cursor-not-allowed" : ""}`}>Submit</button>
             </div>
 
         </div >

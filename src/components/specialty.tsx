@@ -55,7 +55,7 @@ const SpecialtyComponent: FunctionComponent<Props> = ({ specialty, loadSpecialti
         }
     }
 
-    return <div className="w-[10rem] h-[10rem] bg-white rounded-lg shadow-lg flex flex-col p-4 justify-between">
+    return <div className="min-w-[10rem] min-h-[10rem] bg-white rounded-lg shadow-lg flex flex-col p-4 justify-between">
         <div className="flex-col flex">
             <span className="text-[1.2rem] font-medium">{specialty.name}</span>
             <span>€{specialty.price}</span>
