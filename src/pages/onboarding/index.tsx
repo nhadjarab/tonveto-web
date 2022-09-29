@@ -223,7 +223,7 @@ const Onboarding: NextPage = () => {
     return <div>
         <Head><title>Onboarding</title></Head>
 
-        <div className='w-screen h-screen bg-bgColor flex justify-center items-center'>
+        <div className='w-screen h-screen bg-bgColor flex  flex-col justify-center items-center'>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className='w-fit min-h[20rem] text-black bg-white p-8  flex flex-col rounded-lg shadow-lg gap-y-2'>
                     {/* Full name container */}
@@ -328,7 +328,16 @@ const Onboarding: NextPage = () => {
                         className={`bg-black text-white p-2 rounded-lg ${isDisabled() && "bg-gray-400 cursor-not-allowed"}`}>Submit</button>
                 </div>
             </form>
+            <button onClick={() => {
+                    localStorage.removeItem("token")
+                    localStorage.removeItem("user_id")
+                    router.replace("/auth")
+                }} className='p-2 bg-black rounded-lg text-white mt-5'>
+                    Logout
+                </button>
         </div>
+
+
     </div>
 
 }

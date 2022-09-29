@@ -13,6 +13,7 @@ export const reportCommentVet = async (commentId: string, vetId: string) => {
       {
         user_type: "vet",
         vet_id: vetId,
+        description: "",
       },
       {
         headers: {

@@ -65,7 +65,7 @@ const ClinicOnboarding: NextPage = () => {
 
 
 
-            <div className='w-screen h-screen bg-bgColor flex justify-center items-center '>
+            <div className='w-screen h-screen bg-bgColor flex flex-col justify-center items-center '>
 
                 <div className='w-[40rem] min-h-[20rem] bg-white rounded-lg shadow-lg p-8 flex flex-col'>
 
@@ -103,7 +103,13 @@ const ClinicOnboarding: NextPage = () => {
 
 
                 </div>
-
+                <button onClick={() => {
+                    localStorage.removeItem("token")
+                    localStorage.removeItem("user_id")
+                    router.replace("/auth")
+                }} className='p-2 bg-black rounded-lg text-white mt-5'>
+                    Logout
+                </button>
             </div>
 
 
