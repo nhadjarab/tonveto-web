@@ -3,7 +3,7 @@ import { BACKEND_URL } from "@/constants/constants";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-export const reportCommentVet = async (commentId: string, vetId: string) => {
+export const reportCommentVet = async (commentId: string, vetId: string , description : string) => {
   try {
     const id = localStorage.getItem("user_id");
     const token = localStorage.getItem("token");
@@ -13,7 +13,7 @@ export const reportCommentVet = async (commentId: string, vetId: string) => {
       {
         user_type: "vet",
         vet_id: vetId,
-        description: "",
+        description: description
       },
       {
         headers: {
