@@ -55,7 +55,7 @@ const CloseTimeslotModal: FunctionComponent<Props> = ({ setIsModalOpen, loadAppi
         <div onClick={(e) => {
             e.stopPropagation()
         }} className="w-[40rem] min-h-[20rem] bg-white rounded-lg shadow-lg p-8 flex flex-col">
-            <span className="font-medium mb-4">Close Timeslot</span>
+            <span className="font-medium mb-4">Bloquer créneau</span>
 
 
             <div className="h-full w-full flex flex-col items-center justify-center">
@@ -75,7 +75,7 @@ const CloseTimeslotModal: FunctionComponent<Props> = ({ setIsModalOpen, loadAppi
                     onClick={handleSubmit}
                     disabled={
                         !validateDate() || date === "" || time === ""
-                    } className={`mt-10 rounded-lg text-white bg-black p-2 w-full ${!validateDate() || date === "" || time === "" ? "bg-gray-400 cursor-not-allowed" : ""}`}>Submit</button>
+                    } className={`mt-10 rounded-lg text-white bg-black p-2 w-full ${!validateDate() || date === "" || time === "" ? "bg-gray-400 cursor-not-allowed" : ""}`}>Bloquer</button>
             </div>
 
         </div >

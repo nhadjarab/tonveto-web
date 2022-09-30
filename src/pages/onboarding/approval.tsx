@@ -60,7 +60,7 @@ const ApprovalOnboarding: NextPage = () => {
 
 
             <div className='w-screen h-screen bg-bgColor flex flex-col items-center justify-center text-black'>
-                <span>Your profile is all set, just wait for an admin to approve you!</span>
+                <span>Votre profile est en attente de validation.</span>
                 <div className='relative w-[15rem] h-[15rem]'>
 
                     <Image layout='fill' className='w-[30px]' src="/success.svg" alt="Success" />
@@ -71,7 +71,7 @@ const ApprovalOnboarding: NextPage = () => {
                     localStorage.removeItem("user_id")
                     router.replace("/auth")
                 }} className='p-2 bg-black rounded-lg text-white'>
-                    Logout
+                    Déconnexion
                 </button>
             </div>
 

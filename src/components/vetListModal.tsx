@@ -67,7 +67,7 @@ const VetsModal: FunctionComponent<Props> = ({ setIsModalOpen }) => {
             e.stopPropagation()
         }} className="w-[40rem] min-h-[20rem] bg-white rounded-lg shadow-lg p-8 flex flex-col">
 
-            <span className="text-lg font-medium">Vets List</span>
+            <span className="text-lg font-medium">Membres de la clinique</span>
 
             <If condition={clinic !== null}>
                 <Then>
@@ -82,7 +82,7 @@ const VetsModal: FunctionComponent<Props> = ({ setIsModalOpen }) => {
                                 }} className="flex flex-col">
                                     <span className="text-lg font-medium">{vet.first_name}  {vet.last_name}</span>
                                     <span className="text-sm">{vet.email}</span>
-                                    <span className="text-sm">Identification Number : {vet.identification_order}</span>
+                                    <span className="text-sm">Numéro ordianal : {vet.identification_order}</span>
                                 </div>
 
                                 <div className="flex items-center gap-x-2">
@@ -97,7 +97,7 @@ const VetsModal: FunctionComponent<Props> = ({ setIsModalOpen }) => {
                                                 onClick={async () => {
                                                     setIsDialogOpen(true)
                                                 }}
-                                                className="p-2 rounded-lg bg-red-500 text-white">Remove vet</button>
+                                                className="p-2 rounded-lg bg-red-500 text-white">Supprimer</button>
                                         </Then>
 
 

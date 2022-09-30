@@ -59,10 +59,10 @@ const ClinicsPage: FunctionComponent = () => {
     return <div className="w-[calc(100%-18rem)] h-screen flex flex-col text-black p-10">
 
         <div className="flex items-center justify-between">
-            <span className="text-[1.5rem] font-medium mb-4">Clinics</span>
+            <span className="text-[1.5rem] font-medium mb-4">Cliniques</span>
             <button onClick={() => {
                 setIsModalOpen(true)
-            }} className="p-2 bg-black text-white rounded-lg">New</button>
+            }} className="p-2 bg-black text-white rounded-lg">Nouvelle clinique</button>
         </div>
 
 
@@ -75,8 +75,8 @@ const ClinicsPage: FunctionComponent = () => {
                         height={300}
                         width={300}
                     />
-                    <span className="font-medium">You are not part of any clinic</span>
-                    <button disabled={isFetching} onClick={loadAppointments} className={`  p-2 bg-black rounded-lg text-white ${isFetching && "bg-gray-400 cursor-not-allowed"}`}>{isFetching ? "Loading..." : "Refresh"}</button>
+                    <span className="font-medium">Vous ne faites partie d&apos;aucune clinique</span>
+                    <button disabled={isFetching} onClick={loadAppointments} className={`  p-2 bg-black rounded-lg text-white ${isFetching && "bg-gray-400 cursor-not-allowed"}`}>{isFetching ? "Loading..." : "Actualiser"}</button>
                 </div> : <div>
                     {
                         clinics.map((clinicRelation: any) => {
@@ -96,7 +96,7 @@ const ClinicsPage: FunctionComponent = () => {
 
                                 <div className="flex gap-x-2 items-center">
                                     <span className={clinic.is_approved ? "text-green-600" : "text-orange-300"}>
-                                        {clinic.is_approved ? "Approved" : "Pending"}
+                                        {clinic.is_approved ? "Approuvée" : "En attente de validation"}
                                     </span>
                                     {
                                         clinic.owner_id === user_id && clinic.is_approved && <>
@@ -104,13 +104,13 @@ const ClinicsPage: FunctionComponent = () => {
                                             setSelectedClinic(clinic.id)
                                             setIsApplicantModalOpen(true)
                                         }} className="p-2 border-2 border-black rounded-lg">
-                                            Show applicants
+                                            Liste des demandes
                                         </button>
                                         <button onClick={() => {
                                             setSelectedClinic(clinic.id)
                                             setIsListModalOpen(true)
                                         }} className="p-2 bg-black text-white rounded-lg">
-                                            Show Vets List
+                                            Membres de la clinique
                                         </button>
                                         </>
                                     }

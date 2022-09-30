@@ -55,8 +55,8 @@ const SpecialtiesPage: FunctionComponent = () => {
     return <div className="w-[calc(100%-18rem)] h-screen flex flex-col text-black p-10">
         <div className="flex w-full items-center justify-between">
 
-            <span className="text-[1.5rem] font-medium">Specialties</span>
-            <button onClick={() => setIsModalOpen(true)} className="p-2 border-[1px] border-black rounded-lg">+ Add Specialty</button>
+            <span className="text-[1.5rem] font-medium">Mes spécialités</span>
+            <button onClick={() => setIsModalOpen(true)} className="p-2 border-[1px] border-black rounded-lg">+ Ajouter spécialité</button>
         </div>
 
 
@@ -70,8 +70,8 @@ const SpecialtiesPage: FunctionComponent = () => {
                         height={300}
                         width={300}
                     />
-                    <span className="font-medium">You do not have any specialties yet!</span>
-                    <button disabled={isFetching} onClick={loadSpecialties} className={`  p-2 bg-black rounded-lg text-white ${isFetching && "bg-gray-400 cursor-not-allowed"}`}>{isFetching ? "Loading..." : "Refresh"}</button>
+                    <span className="font-medium">Vous n&apos;avez aucune spécialité!</span>
+                    <button disabled={isFetching} onClick={loadSpecialties} className={`  p-2 bg-black rounded-lg text-white ${isFetching && "bg-gray-400 cursor-not-allowed"}`}>{isFetching ? "Loading..." : "Actualiser"}</button>
                 </div> : <div ref={parent} className="mt-4 w-full flex gap-4 flex-wrap">
                     {
                         specialties.map((specialty, index) => {

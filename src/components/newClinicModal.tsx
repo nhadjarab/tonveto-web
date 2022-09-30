@@ -34,13 +34,13 @@ const NewClinicModal: FunctionComponent<Props> = ({ setIsModalOpen }) => {
                                 ? 'bg-white shadow'
                                 : 'text-black hover:bg-white/[0.12] hover:text-white'}`
 
-                        }>Create Clinic</Tab>
+                        }>Créer clinique</Tab>
                     <Tab className={
                         `w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-black ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none  ${selected === 1
                             ? 'bg-white shadow'
                             : 'text-black hover:bg-white/[0.12] hover:text-white'}`
 
-                    } onClick={() => setSelected(1)}>Join Clinic</Tab>
+                    } onClick={() => setSelected(1)}>Rejoindre clinique</Tab>
                 </Tab.List>
             </Tab.Group>
 

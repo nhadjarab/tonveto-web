@@ -104,7 +104,7 @@ const Auth: NextPage = () => {
             <title>Authentication</title>
         </Head>
         <div className='w-[40rem] mim-h-[20rem] bg-white rounded-lg shadow-lg flex flex-col items-center p-4 gap-y-4'>
-            <span className='font-medium text-[1.5rem]'>{authenticationType === "login" ? "Login" : "Register"}</span>
+            <span className='font-medium text-[1.5rem]'>{authenticationType === "login" ? "Connexion" : "Inscription"}</span>
             <form onSubmit={handleSubmit(onSubmit)} className='w-full flex flex-col items-center gap-y-4 mt-[2rem]'>
                 {/* Email input */}
 
@@ -112,7 +112,7 @@ const Auth: NextPage = () => {
                     <MdOutlineMail className='text-[1.5rem] text-gray-400' />
                     <input
                         className="outline-none bg-white w-[90%] text-black"
-                        placeholder="gavin.belson@hooli.com"
+                        placeholder="addresse mail"
                         {...register("email", {
                             required: {
                                 value: true,
@@ -157,7 +157,7 @@ const Auth: NextPage = () => {
                 <button disabled={
                     (email != undefined && !validator.isEmail(email)) && (password != undefined && password.length < 6)
                 } className="w-[10rem] h-10 bg-black text-white rounded-xl font-medium" type="submit">
-                    {isLoading ? "Loading..." : authenticationType === "login" ? "Login" : "Register"}
+                    {isLoading ? "Loading..." : authenticationType === "login" ? "Se connecter" : "Créer un compte"}
                 </button>
 
                 <span onClick={() => {
@@ -166,7 +166,7 @@ const Auth: NextPage = () => {
                     } else {
                         setAuthenticationType("login")
                     }
-                }} className="text-blue-600 select-none cursor-pointer">{authenticationType === "login" ? "Don't have an account? register" : "Login to continue"}</span>
+                }} className="text-blue-600 select-none cursor-pointer">{authenticationType === "login" ? "Vous n'avez pas de compte ? Créer un compte" : "Se connecter"}</span>
 
             </form>
         </div >

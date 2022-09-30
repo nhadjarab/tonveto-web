@@ -21,11 +21,11 @@ const Home: NextPage = () => {
         <span className='text-lg font-medium'>TonVeto</span>
         <button className='p-2 rounded-lg bg-black text-white' onClick={() => {
           router.push('/auth')
-        }}>Get Started</button>
+        }}>Connexion / Inscription</button>
       </div>
 
       <div className='flex flex-col w-full h-full items-center justify-center gap-y-10'>
-        <span className='text-xl font-medium'>Get started using TonVeto</span>
+        <span className='text-xl font-medium'>Bienvenue sur Tonveto</span>
         <div className='flex w-full items-center justify-between px-28'>
           <a href="https://drive.google.com/uc?export=download&id=1LAp25jRg_UYrQTVYJmigPkugFoVs70vi" target="_blank" className='w-[15rem] h-[5rem] relative' rel="noreferrer">
             <Image src="/win.png" layout='fill' alt="Download on Windows" className='object-cover' />

@@ -34,22 +34,22 @@ const SideBar: FunctionComponent<SideBartProps> = ({ active, setActive }) => {
 
             <div onClick={() => setActive(0)} className={`flex w-[14rem] items-center gap-x-2 cursor-pointer p-2 hover:bg-gray-200/60 duration-300 transition-all rounded-lg hover:scale-110 ${active === 0 && "bg-gray-200/60 scale-110"} `}>
                 <AiOutlineCalendar className="text-[1.5rem]" />
-                <span>Appointments</span>
+                <span>Rendez-vous</span>
             </div>
 
             <div onClick={() => setActive(1)} className={`flex w-[14rem] items-center gap-x-2 cursor-pointer p-2 hover:bg-gray-200/60 duration-300 transition-all rounded-lg hover:scale-110 ${active === 1 && "bg-gray-200/60 scale-110"}`}>
                 <BiClinic className="text-[1.5rem]" />
-                <span>Clinics</span>
+                <span>Cliniques</span>
             </div>
 
             <div onClick={() => setActive(2)} className={`flex w-[14rem] items-center gap-x-2 cursor-pointer p-2 hover:bg-gray-200/60 duration-300 transition-all rounded-lg hover:scale-110 ${active === 2 && "bg-gray-200/60 scale-110"}`}>
                 <AiOutlineHourglass className="text-[1.5rem]" />
-                <span>Working Hours</span>
+                <span>Horaires</span>
             </div>
 
             <div onClick={() => setActive(3)} className={`flex w-[14rem] items-center gap-x-2 cursor-pointer p-2 hover:bg-gray-200/60 duration-300 transition-all rounded-lg hover:scale-110 ${active === 3 && "bg-gray-200/60 scale-110"}`}>
                 <BiBriefcase className="text-[1.5rem]" />
-                <span>Specialties</span>
+                <span>Spécialités</span>
             </div>
 
             <div onClick={() => setActive(4)} className={`flex w-[14rem] items-center gap-x-2 cursor-pointer p-2 hover:bg-gray-200/60 duration-300 transition-all rounded-lg hover:scale-110 ${active === 4 && "bg-gray-200/60 scale-110"}`}>
@@ -64,12 +64,12 @@ const SideBar: FunctionComponent<SideBartProps> = ({ active, setActive }) => {
 
             <div onClick={() => setActive(5)} className={`flex w-[14rem] items-center gap-x-2 cursor-pointer p-2 hover:bg-gray-200/60 duration-300 transition-all rounded-lg hover:scale-110 ${active === 5 && "bg-gray-200/60 scale-110"} `}>
                 <FiSettings className="text-[1.5rem]" />
-                <span>Settings</span>
+                <span>Paramètres</span>
             </div>
 
             <div onClick={handleLogout} className={`flex w-[14rem] items-center gap-x-2 cursor-pointer p-2 hover:bg-gray-200/60 duration-300 transition-all rounded-lg hover:scale-110 `}>
                 <BiLogOut className="text-[1.5rem]" />
-                <span>Logout</span>
+                <span>Déconnexion</span>
             </div>
 
 

@@ -89,8 +89,8 @@ const CreateClinic = () => {
 
 
         {/* Name */}
-        <label className={`${labelCalsseName}`}>Name:</label>
-        <input className={`${inputClassName} w-[26rem]`} placeholder="Clinic" {...register("name", {
+        <label className={`${labelCalsseName}`}>Nom:</label>
+        <input className={`${inputClassName} w-[26rem]`} placeholder="clinique" {...register("name", {
             required: {
                 value: true,
                 message: "Name is required"
@@ -103,14 +103,14 @@ const CreateClinic = () => {
 
 
         {/* Address */}
-        <label className={`${labelCalsseName}`}>Address:</label>
+        <label className={`${labelCalsseName}`}>Adresse:</label>
         <input className={`${inputClassName} w-[26rem]`} {...register("address", {
             required: {
                 value: true,
                 message: "Address is required"
             },
 
-        })} type="text" placeholder='123 clinic street' />
+        })} type="text" placeholder='12 rue du paradis' />
         {errors.address && (
             <span className="text-red-600">{errors.address.message}</span>
         )}
@@ -118,7 +118,7 @@ const CreateClinic = () => {
         {/* City and country container */}
         <div className='w-[]26 flex gap-x-11'>
             <div className='flex flex-col gap-y-2'>
-                <label className={`${labelCalsseName}`}>County:</label>
+                <label className={`${labelCalsseName}`}>Pays:</label>
                 <input className={`${inputClassName}`} {...register("country", {
                     required: {
                         value: true,
@@ -131,7 +131,7 @@ const CreateClinic = () => {
                 )}
             </div>
             <div className='flex flex-col gap-y-2'>
-                <label className={`${labelCalsseName}`}> City:</label>
+                <label className={`${labelCalsseName}`}> Ville:</label>
                 <input className={`${inputClassName}`} {...register("city", {
                     required: {
                         value: true,
@@ -146,21 +146,21 @@ const CreateClinic = () => {
         </div>
 
         {/* Address */}
-        <label className={`${labelCalsseName}`}>Zip Code:</label>
+        <label className={`${labelCalsseName}`}>Code postal:</label>
         <input className={`${inputClassName} w-[26rem]`} {...register("zip_code", {
             required: {
                 value: true,
                 message: "Zip Code is required"
             },
 
-        })} type="text" placeholder='34978' />
+        })} type="text" placeholder='75000' />
         {errors.zip_code && (
             <span className="text-red-600">{errors.zip_code.message}</span>
         )}
 
         {/* Phone number */}
 
-        <label className={`${labelCalsseName}`}>Phone Number:</label>
+        <label className={`${labelCalsseName}`}>Téléphone:</label>
         <input className={`${inputClassName} w-[26rem]`} {...register("phone_number", {
             required: {
                 value: true,
@@ -174,13 +174,13 @@ const CreateClinic = () => {
                 if (!validator.isMobilePhone(values.phone_number)) return "Phone number is invalid"
             }
 
-        })} type="tel" placeholder='555-5555-555' />
+        })} type="tel" placeholder='0100200030' />
         {errors.phone_number && (
             <span className="text-red-600">{errors.phone_number.message}</span>
         )}
 
         <button disabled={isDisabled()}
-            className={`bg-black w-[27rem] text-white p-2 rounded-lg ${isDisabled() && "bg-gray-400 cursor-not-allowed"}`}>{isSubmitting ? "Loading..." : "Submit"}</button>
+            className={`bg-black w-[27rem] text-white p-2 rounded-lg ${isDisabled() && "bg-gray-400 cursor-not-allowed"}`}>{isSubmitting ? "Loading..." : "Valider"}</button>
     </form>
 }
 

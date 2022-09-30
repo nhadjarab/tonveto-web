@@ -108,7 +108,7 @@ const ClinicOnboarding: NextPage = () => {
                     localStorage.removeItem("user_id")
                     router.replace("/auth")
                 }} className='p-2 bg-black rounded-lg text-white mt-5'>
-                    Logout
+                    Déconnexion
                 </button>
             </div>
 

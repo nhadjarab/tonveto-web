@@ -71,16 +71,16 @@ const NewSpecialtyModal: FunctionComponent<Props> = ({ setIsModalOpen, loadSpeci
 
         }} className="cursor-default w-[40rem] h-[20rem] rounded-lg bg-white p-6">
             <div className="flex justify-between mb-4">
-                <span className="font-medium text-[1.2rem]">{selectedSpecialty ? "Update Specialty" : "New Specialty"}</span>
+                <span className="font-medium text-[1.2rem]">{selectedSpecialty ? "Editer spécialité" : "Nouvelle spécialité"}</span>
                 <AiOutlineClose onClick={() => setIsModalOpen(false)} className="text-black cursor-pointer text-[1.5rem]" />
             </div>
 
-            <label>Specialty Name:</label>
+            <label>Spécialité:</label>
             <input defaultValue={selectedSpecialty ? selectedSpecialty.name : ""} onChange={(e) => {
                 setSpecialtyName(e.target.value)
             }} className="w-full outline-none border-[1px] bg-white border-black rounded-lg p-2 mb-4" placeholder="Specialty" />
 
-            <label>Price:</label>
+            <label>Prix:</label>
             <input defaultValue={selectedSpecialty ? selectedSpecialty.price : ""}
             onInput={(e) => {
                 e.target.value = Math.abs(parseFloat(e.target.value)).toString()
@@ -89,7 +89,7 @@ const NewSpecialtyModal: FunctionComponent<Props> = ({ setIsModalOpen, loadSpeci
                 setSpecialtyPrice(Math.abs(parseFloat(e.target.value)).toString())
             }} className="w-full outline-none border-[1px] bg-white border-black rounded-lg p-2 mb-4" placeholder="50€" type="number" />
 
-            <button onClick={handleCreateSpecialty} disabled={specialtyName.length === 0 || specialtyPrice.length === 0 || isCreating || (specialtyName === selectedSpecialty?.name && specialtyPrice === selectedSpecialty?.price.toString())} className={`w-full bg-black text-white rounded-lg p-2 ${specialtyName.length === 0 || specialtyPrice.length === 0 || isCreating || (specialtyName === selectedSpecialty?.name && specialtyPrice === selectedSpecialty?.price.toString()) ? "bg-gray-400 cursor-not-allowed" : ""}`}>{isCreating ? "Loading..." : selectedSpecialty ? "Update Specialty" : "Add new specialty"}</button>
+            <button onClick={handleCreateSpecialty} disabled={specialtyName.length === 0 || specialtyPrice.length === 0 || isCreating || (specialtyName === selectedSpecialty?.name && specialtyPrice === selectedSpecialty?.price.toString())} className={`w-full bg-black text-white rounded-lg p-2 ${specialtyName.length === 0 || specialtyPrice.length === 0 || isCreating || (specialtyName === selectedSpecialty?.name && specialtyPrice === selectedSpecialty?.price.toString()) ? "bg-gray-400 cursor-not-allowed" : ""}`}>{isCreating ? "Loading..." : selectedSpecialty ? "Ok" : "Ok"}</button>
         </div>
     </div>
 }

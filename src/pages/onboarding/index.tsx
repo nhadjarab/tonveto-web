@@ -229,7 +229,7 @@ const Onboarding: NextPage = () => {
                     {/* Full name container */}
                     <div className='w-[]26 flex gap-x-11'>
                         <div className='flex flex-col gap-y-2'>
-                            <label className={`${labelCalsseName}`}>First Name:</label>
+                            <label className={`${labelCalsseName}`}>Prénom:</label>
                             <input className={`${inputClassName}`} {...register("first_name", {
                                 required: {
                                     value: true,
@@ -239,13 +239,13 @@ const Onboarding: NextPage = () => {
                                     return validator.isAlpha(values.first_name) || "First Name must be alphabetic"
                                 }
 
-                            })} placeholder='John' />
+                            })} placeholder='François' />
                             {errors.first_name && (
                                 <span className="text-red-600">{errors.first_name.message}</span>
                             )}
                         </div>
                         <div className='flex flex-col gap-y-2'>
-                            <label className={`${labelCalsseName}`}>Last Name:</label>
+                            <label className={`${labelCalsseName}`}>Nom:</label>
                             <input className={`${inputClassName}`} {...register("last_name", {
                                 required: {
                                     value: true,
@@ -255,7 +255,7 @@ const Onboarding: NextPage = () => {
                                     return validator.isAlpha(values.last_name) || "Last Name must be alphabetic"
                                 }
 
-                            })} placeholder='Doe' />
+                            })} placeholder='Dupont' />
                             {errors.last_name && (
                                 <span className="text-red-600">{errors.last_name.message}</span>
                             )}
@@ -263,7 +263,7 @@ const Onboarding: NextPage = () => {
                     </div>
 
                     {/* BirthDate */}
-                    <label className={`${labelCalsseName}`}>Birth date:</label>
+                    <label className={`${labelCalsseName}`}>Date de naissance:</label>
                     <input className={`${inputClassName} w-[26rem]`} {...register("birth_date", {
                         required: {
                             value: true,
@@ -279,7 +279,7 @@ const Onboarding: NextPage = () => {
                     )}
                     {/* Phone number */}
 
-                    <label className={`${labelCalsseName}`}>Phone Number:</label>
+                    <label className={`${labelCalsseName}`}>Téléphone:</label>
                     <input className={`${inputClassName} w-[26rem]`} {...register("phone_number", {
                         required: {
                             value: true,
@@ -293,7 +293,7 @@ const Onboarding: NextPage = () => {
                             return validator.isMobilePhone(values.phone_number) || "Invalid phone number"
                         }
 
-                    })} type="tel" placeholder='555-5555-555' />
+                    })} type="tel" placeholder='0600001234' />
                     {errors.phone_number && (
                         <span className="text-red-600">{errors.phone_number.message}</span>
                     )}
@@ -313,7 +313,7 @@ const Onboarding: NextPage = () => {
                         <span className="text-red-600">{errors.bank_details.message}</span>
                     )}
                     {/* Identification Order */}
-                    <label className={`${labelCalsseName}`}>Identification Order:</label>
+                    <label className={`${labelCalsseName}`}>Numéro ordinal:</label>
                     <input className={`${inputClassName} w-[26rem]`} {...register("identification_order", {
                         required: {
                             value: true,
@@ -325,7 +325,7 @@ const Onboarding: NextPage = () => {
                         <span className="text-red-600">{errors.identification_order.message}</span>
                     )}
                     <button disabled={isDisabled()}
-                        className={`bg-black text-white p-2 rounded-lg ${isDisabled() && "bg-gray-400 cursor-not-allowed"}`}>Submit</button>
+                        className={`bg-black text-white p-2 rounded-lg ${isDisabled() && "bg-gray-400 cursor-not-allowed"}`}>Valider</button>
                 </div>
             </form>
             <button onClick={() => {
@@ -333,7 +333,7 @@ const Onboarding: NextPage = () => {
                     localStorage.removeItem("user_id")
                     router.replace("/auth")
                 }} className='p-2 bg-black rounded-lg text-white mt-5'>
-                    Logout
+                    Déconnexion
                 </button>
         </div>
 

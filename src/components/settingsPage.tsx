@@ -129,7 +129,7 @@ const SettingsPage: FunctionComponent = () => {
     return <div className="w-[calc(100%-18rem)] h-screen flex flex-col text-black p-10">
         <div className="flex w-full items-center justify-between">
 
-            <span className="text-[1.5rem] font-medium">Settings</span>
+            <span className="text-[1.5rem] font-medium">Infomations</span>
 
         </div>
 
@@ -139,7 +139,7 @@ const SettingsPage: FunctionComponent = () => {
                     {/* Full name container */}
                     <div className='w-[]26 flex gap-x-11'>
                         <div className='flex flex-col gap-y-2'>
-                            <label className={`${labelCalsseName}`}>First Name:</label>
+                            <label className={`${labelCalsseName}`}>Prénom:</label>
                             <input defaultValue={userProfile ? userProfile.first_name : ""} className={`${inputClassName}`} {...register("first_name", {
                                 required: {
                                     value: true,
@@ -155,7 +155,7 @@ const SettingsPage: FunctionComponent = () => {
                             )}
                         </div>
                         <div className='flex flex-col gap-y-2'>
-                            <label className={`${labelCalsseName}`}>Last Name:</label>
+                            <label className={`${labelCalsseName}`}>Nom:</label>
                             <input defaultValue={userProfile ? userProfile.last_name : ""} className={`${inputClassName}`} {...register("last_name", {
                                 required: {
                                     value: true,
@@ -191,7 +191,7 @@ const SettingsPage: FunctionComponent = () => {
 
 
                     {/* BirthDate */}
-                    <label className={`${labelCalsseName}`}>Birth date:</label>
+                    <label className={`${labelCalsseName}`}>Date de naissance:</label>
                     <input defaultValue={userProfile ? userProfile.birth_date : ""} className={`${inputClassName} w-[26rem]`} {...register("birth_date", {
                         required: {
                             value: true,
@@ -207,7 +207,7 @@ const SettingsPage: FunctionComponent = () => {
                     )}
                     {/* Phone number */}
 
-                    <label className={`${labelCalsseName}`}>Phone Number:</label>
+                    <label className={`${labelCalsseName}`}>Téléphone:</label>
                     <input defaultValue={userProfile ? userProfile.phone_number : ""} className={`${inputClassName} w-[26rem]`} {...register("phone_number", {
                         required: {
                             value: true,
@@ -242,7 +242,7 @@ const SettingsPage: FunctionComponent = () => {
                     )}
 
                     <button disabled={isDisabled()}
-                        className={`bg-black text-white p-2 rounded-lg ${isDisabled() && "bg-gray-400 cursor-not-allowed"}`}>Submit</button>
+                        className={`bg-black text-white p-2 rounded-lg ${isDisabled() && "bg-gray-400 cursor-not-allowed"}`}>Mettre à jour mes informations</button>
                 </div>
             </form>
         </div>

@@ -113,8 +113,8 @@ const AppointmentsPage: FunctionComponent = () => {
 
     return <div className="w-[calc(100%-18rem)] h-screen flex flex-col text-black p-10">
         <div className="flex items-center justify-between">
-            <span className="text-[1.5rem] font-medium">Appointments Page</span>
-            <button onClick={() => setIsModalOpen(true)} className="p-2 rounded-lg bg-black text-white">Close Timeslot</button>
+            <span className="text-[1.5rem] font-medium">Rendez-vous</span>
+            <button onClick={() => setIsModalOpen(true)} className="p-2 rounded-lg bg-black text-white">Bloquer créaneau</button>
         </div>
 
 
@@ -127,8 +127,8 @@ const AppointmentsPage: FunctionComponent = () => {
                         height={300}
                         width={300}
                     />
-                    <span className="font-medium">There are no appointments</span>
-                    <button disabled={isFetching} onClick={loadAppointments} className={`  p-2 bg-black rounded-lg text-white ${isFetching && "bg-gray-400 cursor-not-allowed"}`}>{isFetching ? "Loading..." : "Refresh"}</button>
+                    <span className="font-medium">Il n&apos;y a pas de rendez-vous</span>
+                    <button disabled={isFetching} onClick={loadAppointments} className={`  p-2 bg-black rounded-lg text-white ${isFetching && "bg-gray-400 cursor-not-allowed"}`}>{isFetching ? "Loading..." : "Actualiser"}</button>
                 </div>
             </Then>
             <Else>
@@ -137,7 +137,7 @@ const AppointmentsPage: FunctionComponent = () => {
                     <If condition={closedAppointments.length > 0}>
                         <Then>
                             <div className="w-full mb-4 flex flex-col">
-                                <span className="text-lg font-medium">Closed Timeslots</span>
+                                <span className="text-lg font-medium">Crénaux bloqués</span>
                                 <div className="w-full h-full flex flex-col mt-4">
                                     {
                                         closedAppointments.map((appointment) => {
@@ -150,7 +150,7 @@ const AppointmentsPage: FunctionComponent = () => {
                                                 <button onClick={async () => {
                                                     await handleOpenTimeslot(appointment.date, appointment.time)
                                                 }} className="font-medium p-2 rounded-lg bg-green-500 text-white">
-                                                    Open Timeslot
+                                                    Débloquer créneau
                                                 </button>
                                             </div>
                                         })
@@ -160,8 +160,8 @@ const AppointmentsPage: FunctionComponent = () => {
                         </Then>
                         <Else>
                             <div className="flex flex-col">
-                                <span className="text-lg font-medium">Closed Timeslots</span>
-                                <span>You have no upcoming appointments</span>
+                                <span className="text-lg font-medium">Crénaux bloqués</span>
+                                <span>Vous n&apos;avez pas de prochains rendez-vous</span>
                             </div>
                         </Else>
                     </If>
@@ -169,7 +169,7 @@ const AppointmentsPage: FunctionComponent = () => {
                     <If condition={upcomingAppointments.length > 0}>
                         <Then>
                             <div className="w-full  mb-4 flex flex-col">
-                                <span className="text-lg font-medium">Upcoming Appointments</span>
+                                <span className="text-lg font-medium">Prochains rendez-vous</span>
                                 <div className="w-full h-full flex flex-col mt-4">
 
 
@@ -200,7 +200,7 @@ const AppointmentsPage: FunctionComponent = () => {
                                                         setSelectedAppointment(appointment)
                                                         setIsUpdateModalOpen(true)
                                                     }} className="font-medium p-2 rounded-lg border-2 text-sm border-black ">
-                                                        Update Appointment
+                                                        Editer rendez-vous
                                                     </button>
 
                                                     {
@@ -213,7 +213,7 @@ const AppointmentsPage: FunctionComponent = () => {
                                                         setIsDialogOpen(true)
 
                                                     }} className="font-medium p-2 rounded-lg bg-black text-sm text-white ">
-                                                        Cancel Appointment
+                                                        Annuler Rendez-vous
                                                     </button>
                                                 </div>
                                                 {
@@ -237,7 +237,7 @@ const AppointmentsPage: FunctionComponent = () => {
                     <If condition={pastAppointments.length > 0}>
                         <Then>
                             <div className="w-full mb-4 flex flex-col">
-                                <span className="text-lg font-medium">Past Appointments</span>
+                                <span className="text-lg font-medium">Rendez-vous passés</span>
                                 <div className="w-full h-full flex flex-col mt-4">
                                     {
                                         pastAppointments.map((appointment) => {
@@ -273,13 +273,13 @@ const AppointmentsPage: FunctionComponent = () => {
                                                         setSelectedAppointment(appointment)
                                                         setIsNewAppointmentModalOpen(true)
                                                     }} className="font-medium p-2 rounded-lg border-2 text-sm border-black ">
-                                                        Schedule New Appointment
+                                                        Plannifier un future rendez-vous
                                                     </button>
                                                     <button onClick={async () => {
                                                         setSelectedAppointment(appointment)
                                                         setIsMedicalReportModalOpen(true)
                                                     }} className="font-medium p-2 rounded-lg bg-black text-sm text-white ">
-                                                        {appointment.MedicalReport.length === 0 ? "Add Medical report" : "Update Medical report"}
+                                                        {appointment.MedicalReport.length === 0 ? "Ajouter rapport médical" : "Editer rapport médical"}
                                                     </button>
                                                 </div>
                                             </div>

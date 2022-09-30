@@ -65,10 +65,10 @@ const SpecialtyComponent: FunctionComponent<Props> = ({ specialty, loadSpecialti
 
 
         <div className="flex w-full gap-x-2">
-            <button onClick={handleUpdateSpecialty} disabled={isLoading} className={`p-1 border-2 border-black rounded-lg ${isLoading && "bg-gray-400 cursor-not-allowed"}`}>Update</button>
+            <button onClick={handleUpdateSpecialty} disabled={isLoading} className={`p-1 border-2 border-black rounded-lg ${isLoading && "bg-gray-400 cursor-not-allowed"}`}>Editer</button>
             <button onClick={() => {
                 setIsDialogOpen(true)
-            }} disabled={isLoading} className={`p-1 bg-red-600 text-white rounded-lg ${isLoading && "bg-gray-400 cursor-not-allowed"}`}>Delete</button>
+            }} disabled={isLoading} className={`p-1 bg-red-600 text-white rounded-lg ${isLoading && "bg-gray-400 cursor-not-allowed"}`}>Supprimer</button>
         </div>
 
         {

@@ -84,15 +84,15 @@ const ApplicantsModal: FunctionComponent<Props> = ({ setIsModalOpen }) => {
         <div onClick={(e) => {
             e.stopPropagation()
         }} className="w-[40rem] min-h-[20rem] bg-white rounded-lg shadow-lg p-8 flex flex-col">
-            <span className="font-medium mb-4">Applicant List</span>
+            <span className="font-medium mb-4">Demandes en cours</span>
 
             {
                 applicants.length === 0 ?
                     <div className="w-full h-full flex flex-col items-center justify-center">
-                        <span className="text-gray-400">No Applicants</span>
+                        <span className="text-gray-400">Pas de demandes</span>
                         <button onClick={async () => {
                             await loadApplicants()
-                        }} className="p-2 rounded-lg bg-black text-white">Refresh</button>
+                        }} className="p-2 rounded-lg bg-black text-white">Actualiser</button>
                     </div>
                     : <div className="w-full h-full flex flex-col">
                         <div className="w-full h-full overflow-y-auto">
@@ -108,18 +108,18 @@ const ApplicantsModal: FunctionComponent<Props> = ({ setIsModalOpen }) => {
                                         }} className="flex flex-col">
                                             <span className="text-lg font-medium">{vet.first_name}  {vet.last_name}</span>
                                             <span className="text-sm">{vet.email}</span>
-                                            <span className="text-sm">Identification Number : {vet.identification_order}</span>
+                                            <span className="text-sm">Numéro ordinal : {vet.identification_order}</span>
                                         </div>
 
                                         <div className="flex items-center gap-x-2">
                                             <button onClick={async () => {
                                                 await handleAccept(vet.id!)
-                                            }} className="p-2 rounded-lg bg-green-500 text-white">Accept</button>
+                                            }} className="p-2 rounded-lg bg-green-500 text-white">Accepter</button>
                                             <button
                                                 onClick={async () => {
                                                     await handleReject(vet.id!)
                                                 }}
-                                                className="p-2 rounded-lg bg-red-500 text-white">Reject</button>
+                                                className="p-2 rounded-lg bg-red-500 text-white">Refuser</button>
                                         </div>
 
 

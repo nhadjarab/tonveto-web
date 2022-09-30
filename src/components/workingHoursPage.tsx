@@ -350,16 +350,16 @@ const WorkingHoursPage: FunctionComponent = () => {
     }
 
     return <div className="w-[calc(100%-18rem)] h-screen flex flex-col text-black p-10">
-        <span className="text-[1.5rem] font-medium mb-4">Working Hours</span>
+        <span className="text-[1.5rem] font-medium mb-4">Horaires</span>
 
         <div ref={animationParent} className="w-full h-full overflow-scroll bg-white rounded-lg flex flex-col gap-y-4 shadow-lg p-4">
-            <span className=" font-medium">Set Standard Hours</span>
+            <span className=" font-medium">Saisir horaires</span>
             <div className="mb-16" />
 
             {/* Monday */}
             <div className="flex flex-col">
                 <div className="flex items-center justify-between">
-                    <span>Monday:</span>
+                    <span>Lundi:</span>
                     <CustomSwitch checked={isMonday} onChange={setIsMonday} />
                 </div>
 
@@ -368,7 +368,7 @@ const WorkingHoursPage: FunctionComponent = () => {
                     <div className="flex justify-between mt-2 px-14">
 
                         <div className="flex items-center gap-x-2">
-                            <span>Morning:</span>
+                            <span>matin:</span>
                             <input defaultValue={
                                 mondayMorningStart
                             } onChange={(e) => {
@@ -386,7 +386,7 @@ const WorkingHoursPage: FunctionComponent = () => {
                         </div>
 
                         <div className="flex items-center gap-x-2">
-                            <span>Afternoon:</span>
+                            <span>Après midi:</span>
                             <input
                                 defaultValue={
                                     mondayAfternoonStart
@@ -411,14 +411,14 @@ const WorkingHoursPage: FunctionComponent = () => {
             {/* Tuesday */}
             <div className="flex flex-col">
                 <div className="flex items-center justify-between">
-                    <span>Tuesday:</span>
+                    <span>Mardi:</span>
                     <CustomSwitch checked={isTuesday} onChange={setIsTuesday} />
                 </div>
 
                 {isTuesday && <div className="flex justify-between mt-2 px-14">
 
                     <div className="flex items-center gap-x-2">
-                        <span>Morning:</span>
+                        <span>matin:</span>
                         <input
                             defaultValue={
                                 tuesdayMorningStart
@@ -437,7 +437,7 @@ const WorkingHoursPage: FunctionComponent = () => {
                     </div>
 
                     <div className="flex items-center gap-x-2">
-                        <span>Afternoon:</span>
+                        <span>après midi:</span>
                         <input
                             defaultValue={
                                 tuesdayAfternoonStart
@@ -463,14 +463,14 @@ const WorkingHoursPage: FunctionComponent = () => {
             <div
                 className="flex flex-col">
                 <div className="flex items-center justify-between">
-                    <span>Wednesday:</span>
+                    <span>Mercrdi:</span>
                     <CustomSwitch checked={isWednesday} onChange={setIsWednesday} />
                 </div>
 
                 {isWednesday && <div className="flex justify-between mt-2 px-14">
 
                     <div className="flex items-center gap-x-2">
-                        <span>Morning:</span>
+                        <span>matin:</span>
                         <input
                             defaultValue={
                                 wednesdayMorningStart
@@ -489,7 +489,7 @@ const WorkingHoursPage: FunctionComponent = () => {
                     </div>
 
                     <div className="flex items-center gap-x-2">
-                        <span>Afternoon:</span>
+                        <span>après midi:</span>
                         <input
                             defaultValue={
                                 wednesdayAfternoonStart
@@ -514,14 +514,14 @@ const WorkingHoursPage: FunctionComponent = () => {
             {/* Thursday */}
             <div className="flex flex-col">
                 <div className="flex items-center justify-between">
-                    <span>Thursday:</span>
+                    <span>Jeudi:</span>
                     <CustomSwitch checked={isThursday} onChange={setIsThursday} />
                 </div>
 
                 {isThursday && <div className="flex justify-between mt-2 px-14">
 
                     <div className="flex items-center gap-x-2">
-                        <span>Morning:</span>
+                        <span>matin:</span>
                         <input
                             defaultValue={
                                 thursdayMorningStart
@@ -540,7 +540,7 @@ const WorkingHoursPage: FunctionComponent = () => {
                     </div>
 
                     <div className="flex items-center gap-x-2">
-                        <span>Afternoon:</span>
+                        <span>après midi:</span>
                         <input
                             defaultValue={
                                 thursdayAfternoonStart
@@ -564,14 +564,14 @@ const WorkingHoursPage: FunctionComponent = () => {
             {/* Friday */}
             <div className="flex flex-col">
                 <div className="flex items-center justify-between">
-                    <span>Friday:</span>
+                    <span>Vendredi:</span>
                     <CustomSwitch checked={isFriday} onChange={setIsFriday} />
                 </div>
 
                 {isFriday && <div className="flex justify-between mt-2 px-14">
 
                     <div className="flex items-center gap-x-2">
-                        <span>Morning:</span>
+                        <span>matin:</span>
                         <input
                             defaultValue={
                                 fridayMorningStart
@@ -590,7 +590,7 @@ const WorkingHoursPage: FunctionComponent = () => {
                     </div>
 
                     <div className="flex items-center gap-x-2">
-                        <span>Afternoon:</span>
+                        <span>après midi:</span>
                         <input
                             defaultValue={
                                 fridayAfternoonStart
@@ -614,14 +614,14 @@ const WorkingHoursPage: FunctionComponent = () => {
             {/* Saturday */}
             <div className="flex flex-col">
                 <div className="flex items-center justify-between">
-                    <span>Saturday:</span>
+                    <span>Samedi:</span>
                     <CustomSwitch checked={isSaturday} onChange={setIsSaturday} />
                 </div>
 
                 {isSaturday && <div className="flex justify-between mt-2 px-14">
 
                     <div className="flex items-center gap-x-2">
-                        <span>Morning:</span>
+                        <span>matin:</span>
                         <input
                             defaultValue={
                                 saturdayMorningStart
@@ -640,7 +640,7 @@ const WorkingHoursPage: FunctionComponent = () => {
                     </div>
 
                     <div className="flex items-center gap-x-2">
-                        <span>Afternoon:</span>
+                        <span>après midi:</span>
                         <input
                             defaultValue={
                                 saturdayAfternoonStart
@@ -664,14 +664,14 @@ const WorkingHoursPage: FunctionComponent = () => {
             {/* Sunday */}
             <div className="flex flex-col">
                 <div className="flex items-center justify-between">
-                    <span>Sunday:</span>
+                    <span>Dimanche:</span>
                     <CustomSwitch checked={isSunday} onChange={setIsSunday} />
                 </div>
 
                 {isSunday && <div className="flex justify-between mt-2 px-14">
 
                     <div className="flex items-center gap-x-2">
-                        <span>Morning:</span>
+                        <span>matin:</span>
                         <input
                             defaultValue={
                                 sundayMorningStart
@@ -690,7 +690,7 @@ const WorkingHoursPage: FunctionComponent = () => {
                     </div>
 
                     <div className="flex items-center gap-x-2">
-                        <span>Afternoon:</span>
+                        <span>après midi:</span>
                         <input
                             defaultValue={
                                 sundayAfternoonStart
@@ -712,7 +712,7 @@ const WorkingHoursPage: FunctionComponent = () => {
             </div>
 
 
-            <button onClick={onSubmit} className="bg-black p-2 rounded-lg self-center text-white" >Submit</button>
+            <button onClick={onSubmit} className="bg-black p-2 rounded-lg self-center text-white" >Valider</button>
         </div>
 
     </div>
