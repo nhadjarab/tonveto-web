@@ -116,6 +116,7 @@ export const newAppointment = async (
   time: string,
   user_id: string,
   pet_id: string,
+  clinic_id: string
 ) => {
   try {
     const id = localStorage.getItem("user_id");
@@ -129,6 +130,7 @@ export const newAppointment = async (
         vet_id: id,
         user_id,
         pet_id,
+        clinic_id,
       },
       {
         headers: {

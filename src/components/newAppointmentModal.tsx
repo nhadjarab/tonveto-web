@@ -41,7 +41,7 @@ const NewAppointmentModal: FunctionComponent<Props> = ({ setIsModalOpen, loadApp
         if (!validateDate()) toast.error("You can't close a timeslot in the past")
 
         try {
-            const result = await newAppointment(date, time, selectedAppointment.user_id, selectedAppointment.pet_id)
+            const result = await newAppointment(date, time, selectedAppointment.user_id, selectedAppointment.pet_id , selectedAppointment.clinic_id)
 
             if (result && result.status === 201) {
                 toast.success("New Appointment scheduled successfully")
