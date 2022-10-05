@@ -69,7 +69,7 @@ const ApprovalOnboarding: NextPage = () => {
                 <button onClick={() => {
                     localStorage.removeItem("token")
                     localStorage.removeItem("user_id")
-                    router.replace("/auth")
+                    router.replace("/")
                 }} className='p-2 bg-black rounded-lg text-white'>
                     Déconnexion
                 </button>

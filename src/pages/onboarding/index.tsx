@@ -331,7 +331,7 @@ const Onboarding: NextPage = () => {
             <button onClick={() => {
                     localStorage.removeItem("token")
                     localStorage.removeItem("user_id")
-                    router.replace("/auth")
+                    router.replace("/")
                 }} className='p-2 bg-black rounded-lg text-white mt-5'>
                     Déconnexion
                 </button>

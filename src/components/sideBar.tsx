@@ -24,7 +24,7 @@ const SideBar: FunctionComponent<SideBartProps> = ({ active, setActive }) => {
     const handleLogout = () => {
         localStorage.removeItem("token")
         localStorage.removeItem("user_id")
-        router.replace("/auth")
+        router.replace("/")
     }
 
     return <div className="w-[18rem] h-screen p-10 flex flex-col items-center justify-between bg-white text-black">
