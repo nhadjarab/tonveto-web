@@ -137,15 +137,15 @@ const AppointmentsPage: FunctionComponent = () => {
                     <If condition={closedAppointments.length > 0}>
                         <Then>
                             <div className="w-full mb-4 flex flex-col">
-                                <span className="text-lg font-medium">Crénaux bloqués</span>
+                                <span className="text-base text-gray-900 dark:text-white">Crénaux bloqués</span>
                                 <div className="w-full h-full flex flex-col mt-4">
                                     {
                                         closedAppointments.map((appointment) => {
 
                                             return <div key={appointment.id} className="w-full h-[5rem] p-2 flex items-center justify-between mt-4 bg-gray-100 rounded-lg ">
                                                 <div className="flex flex-col justify-center">
-                                                    <span className="text-lg font-medium">{parseDate(appointment.date)}</span>
-                                                    <span className="text-lg font-medium">{appointment.time}</span>
+                                                    <span className="text-base text-gray-900 dark:text-white">{parseDate(appointment.date)}</span>
+                                                    <span className="text-base text-gray-900 dark:text-white">{appointment.time}</span>
                                                 </div>
                                                 <button onClick={async () => {
                                                     await handleOpenTimeslot(appointment.date, appointment.time)
@@ -160,8 +160,8 @@ const AppointmentsPage: FunctionComponent = () => {
                         </Then>
                         <Else>
                             <div className="flex flex-col">
-                                <span className="text-lg font-medium">Crénaux bloqués</span>
-                                <span>Vous n&apos;avez pas de prochains rendez-vous</span>
+                                <span className="text-base text-gray-900 dark:text-white">Crénaux bloqués</span>
+                                <span >Vous n&apos;avez pas de prochains rendez-vous</span>
                             </div>
                         </Else>
                     </If>
@@ -169,29 +169,28 @@ const AppointmentsPage: FunctionComponent = () => {
                     <If condition={upcomingAppointments.length > 0}>
                         <Then>
                             <div className="w-full  mb-4 flex flex-col">
-                                <span className="text-lg font-medium">Prochains rendez-vous</span>
+                                <span className="text-blue-600 dark:text-blue-900" style={{fontWeight:"700"}}>Prochains rendez-vous</span>
                                 <div className="w-full h-full flex flex-col mt-4">
 
 
                                     {
                                         upcomingAppointments.map((appointment) => {
 
-                                            return <div key={appointment.id} className="w-full min-h-[5rem] p-2 flex items-center justify-between mt-4 bg-gray-100 rounded-lg ">
-
-                                                <div className="flex gap-x-2 items-center">
+                                            return <div key={appointment.id} className="w-full min-h-[5rem] p-2 flex items-center justify-between mt-4 bg-gray-100 rounded-lg flex-wrap">
+        
+                                                <div className="flex gap-x-2 items-center contents">
                                                     <div className="flex flex-col justify-center">
-                                                        <span className="text-lg font-medium">{parseDate(appointment.date)}</span>
-                                                        <span className="text-lg font-medium">{appointment.time}</span>
+                                                        <span className="text-base text-gray-900 dark:text-white">{parseDate(appointment.date)}</span>
+                                                        <span className="text-base text-gray-900 dark:text-white">{appointment.time}</span>
                                                     </div>
 
-                                                    <div className="flex flex-col">
-                                                        <span>Client: {appointment.user.first_name}  {appointment.user.last_name}</span>
+                                                    <div className="flex flex-col" style={{width:"11rem"}}>
+                                                        <span className="text-base text-gray-900 dark:text-white" style={{overflowWrap:"anywhere"}} > {appointment.user.first_name}  {appointment.user.last_name}</span>
                                                     </div>
-                                                    <div className="flex flex-col">
-                                                        <span className="">Pet Name:{appointment.pet?.name}</span>
-                                                        <span className="">Pet Species:{appointment.pet?.species}</span>
-                                                        <span className="">Pet Breed:{appointment.pet?.breed}</span>
-                                                        <span>{appointment.pet?.crossbreed ? "Crossbred" : "Not crossbred"}</span>
+                                                    <div className="flex flex-col" style={{width:"11rem"}}>
+                                                        <span className="text-sm text-gray-900 dark:text-white" style={{width:"11rem" ,overflowWrap:"anywhere"}}>{appointment.pet?.name}, {appointment.pet?.species}, {appointment.pet?.breed} </span>
+                                                     
+                                                        <span className="text-sm text-gray-900 dark:text-white" style={{width:"11rem" ,overflowWrap:"anywhere"}}>{appointment.pet?.crossbreed ? "Crossbred" : "Not crossbred"}</span>
                                                     </div>
                                                 </div>
 
@@ -199,8 +198,8 @@ const AppointmentsPage: FunctionComponent = () => {
                                                     <button onClick={async () => {
                                                         setSelectedAppointment(appointment)
                                                         setIsUpdateModalOpen(true)
-                                                    }} className="font-medium p-2 rounded-lg border-2 text-sm border-black ">
-                                                        Editer rendez-vous
+                                                    }} className="font-medium p-2 rounded-lg border-2 text-sm border-white " style={{background:"#8effa1"}}>
+                                                       Editer
                                                     </button>
 
                                                     {
@@ -212,8 +211,8 @@ const AppointmentsPage: FunctionComponent = () => {
                                                     <button onClick={async () => {
                                                         setIsDialogOpen(true)
 
-                                                    }} className="font-medium p-2 rounded-lg bg-black text-sm text-white ">
-                                                        Annuler Rendez-vous
+                                                    }} className="font-medium p-2 rounded-lg bg-black text-sm text-white " style={{background:"#e70f0f"}}>
+                                                       supprimer
                                                     </button>
                                                 </div>
                                                 {
@@ -228,7 +227,7 @@ const AppointmentsPage: FunctionComponent = () => {
                         </Then>
                         <Else>
                             <div className="flex mb-4 flex-col">
-                                <span className="text-lg font-medium">Upcoming Appointments</span>
+                                <span className="text-base text-gray-900 dark:text-white">Upcoming Appointments</span>
                                 <span>You have no upcoming appointments</span>
                             </div>
                         </Else>
@@ -237,14 +236,14 @@ const AppointmentsPage: FunctionComponent = () => {
                     <If condition={pastAppointments.length > 0}>
                         <Then>
                             <div className="w-full mb-4 flex flex-col">
-                                <span className="text-lg font-medium">Rendez-vous passés</span>
+                                <span className="text-blue-600 dark:text-blue-900" style={{fontWeight:"700"}}>Rendez-vous passés</span>
                                 <div className="w-full h-full flex flex-col mt-4">
                                     {
                                         pastAppointments.map((appointment) => {
 
                                             console.log(appointment)
 
-                                            return <div key={appointment.id} className="w-full min-h-[5rem] p-2 flex items-center justify-between mt-4 bg-gray-100 rounded-lg ">
+                                            return <div key={appointment.id} className="w-full min-h-[5rem] p-2 flex items-center justify-between mt-4 bg-gray-100 rounded-lg flex-wrap">
                                                 {
                                                     isNewAppointmentModalOpen && <NewAppointmentModal loadAppintments={loadAppointments} setIsModalOpen={setIsNewAppointmentModalOpen} appointment={appointment} />
                                                 }
@@ -252,28 +251,27 @@ const AppointmentsPage: FunctionComponent = () => {
                                                 {
                                                     isMedicalReportModalOpen && <MedicalReportModal loadAppintments={loadAppointments} setIsModalOpen={setIsMedicalReportModalOpen} />
                                                 }
-                                                <div className="flex gap-x-2 items-center">
-                                                    <div className="flex flex-col justify-center">
-                                                        <span className="text-lg font-medium">{parseDate(appointment.date)}</span>
-                                                        <span className="text-lg font-medium">{appointment.time}</span>
+                                                <div className="flex gap-x-2 items-center contents" >
+                                                    <div className="flex flex-col justify-center" style={{width:"11rem" }}>
+                                                        <span className="text-base text-gray-900 dark:text-white" style={{overflowWrap:"anywhere"}}>{parseDate(appointment.date)}</span>
+                                                        <span className="text-base text-gray-900 dark:text-white" style={{overflowWrap:"anywhere"}}>{appointment.time}</span>
                                                     </div>
 
-                                                    <div className="flex flex-col">
-                                                        <span>Client: {appointment.user.first_name}  {appointment.user.last_name}</span>
+                                                    <div className="flex flex-col" style={{width:"11rem" }}>
+                                                        <span style={{overflowWrap:"anywhere"}}> {appointment.user.first_name}  {appointment.user.last_name}</span>
                                                     </div>
-                                                    <div className="flex flex-col">
-                                                        <span className="">Pet Name:{appointment.pet?.name}</span>
-                                                        <span className="">Pet Species:{appointment.pet?.species}</span>
-                                                        <span className="">Pet Breed:{appointment.pet?.breed}</span>
-                                                        <span>{appointment.pet?.crossbreed ? "Crossbred" : "Not crossbred"}</span>
+                                                    <div className="flex flex-col" style={{width:"11rem" }}>
+                                                        <span className="text-sm text-gray-900 dark:text-white" style={{width:"11rem",overflowWrap:"anywhere"}}>{appointment.pet?.name}, {appointment.pet?.species}, {appointment.pet?.breed}</span>
+                                                        
+                                                        <span className="text-sm text-gray-900 dark:text-white" style={{width:"11rem" ,overflowWrap:"anywhere"}}>{appointment.pet?.crossbreed ? "Crossbred" : "Not crossbred"}</span>
                                                     </div>
                                                 </div>
-                                                <div className="flex items-center gap-x-2">
+                                                <div className="flex items-center gap-x-2 flex-wrap">
                                                     <button onClick={async () => {
                                                         setSelectedAppointment(appointment)
                                                         setIsNewAppointmentModalOpen(true)
-                                                    }} className="font-medium p-2 rounded-lg border-2 text-sm border-black ">
-                                                        Plannifier un future rendez-vous
+                                                    }} className="font-medium p-2 rounded-lg border-2 text-sm border-white " style={{background:"#8effa1"}}>
+                                                        Plannifier le rendez-vous 
                                                     </button>
                                                     <button onClick={async () => {
                                                         setSelectedAppointment(appointment)
@@ -290,7 +288,7 @@ const AppointmentsPage: FunctionComponent = () => {
                         </Then>
                         <Else>
                             <div className="flex flex-col">
-                                <span className="text-lg font-medium">Past Appointments</span>
+                                <span className="text-base text-gray-900 dark:text-white">Past Appointments</span>
                                 <span>You have no past appointments</span>
                             </div>
                         </Else>
