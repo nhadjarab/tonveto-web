@@ -8,8 +8,7 @@ body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   background-color: #eff5f5;
-  color: #000;
-  overflow: scroll;
+    overflow: scroll;
 }
 
 ::-webkit-scrollbar {
@@ -31,12 +30,4 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
-}
+
