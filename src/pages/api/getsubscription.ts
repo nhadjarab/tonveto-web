@@ -24,9 +24,33 @@ export default async function handler(
         customer: customer.data[0].id,
       });
 
-      if (subscription.data.length === 0)
-        return res.json("null");
-      res.json(subscription.data[0].status);
+      if (subscription.data.length === 0) return res.json("null");
+
+      let subscriptionObject = {
+        monthly: false,
+        yearly: false,
+      };
+
+      subscription.data.forEach((sub) => {
+        console.log("=============================");
+        console.log(sub.items.data[0].price.product , sub.status);
+        console.log(process.env.PRODUCT_ID)
+        console.log("=============================");
+        if (
+          sub.items.data[0].price.product === process.env.PRODUCT_ID &&
+          sub.status === "active"
+        )
+          subscriptionObject.monthly = true;
+        if (
+          sub.items.data[0].price.product === process.env.PRODUCT_ID_YEARLY &&
+          sub.status === "active"
+        )
+          subscriptionObject.yearly = true;
+      });
+
+      console.log(subscriptionObject);
+
+      res.json(subscriptionObject);
     } else {
       res.json("null");
     }
