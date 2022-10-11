@@ -64,7 +64,7 @@ const NewAppointmentModal: FunctionComponent<Props> = ({ setIsModalOpen, loadApp
         <div onClick={(e) => {
             e.stopPropagation()
         }} className="w-[40rem] min-h-[20rem] bg-white rounded-lg shadow-lg p-8 flex flex-col">
-            <span className="font-medium mb-4">Schedule New Appointment</span>
+            <span className="font-medium mb-4">Plannifier un rendez-vous</span>
 
 
             <div className="h-full w-full flex flex-col items-center justify-center">
@@ -87,13 +87,13 @@ const NewAppointmentModal: FunctionComponent<Props> = ({ setIsModalOpen, loadApp
 
 
                     <div className="flex flex-col">
-                        <span>Client: {selectedAppointment.user.first_name}  {selectedAppointment.user.last_name}</span>
+                        <span>{selectedAppointment.user.first_name}  {selectedAppointment.user.last_name}</span>
                     </div>
                     <div className="flex flex-col">
-                        <span className="">Pet Name:{selectedAppointment.pet?.name}</span>
-                        <span className="">Pet Species:{selectedAppointment.pet?.species}</span>
-                        <span className="">Pet Breed:{selectedAppointment.pet?.breed}</span>
-                        <span>{selectedAppointment.pet?.crossbreed ? "Crossbred" : "Not crossbred"}</span>
+                        <span className="">{selectedAppointment.pet?.name}</span>
+                        <span className="">{selectedAppointment.pet?.species}</span>
+                        <span className="">{selectedAppointment.pet?.breed}</span>
+                        <span>{selectedAppointment.pet?.crossbreed ? "Croisé(e)" : "Race pure"}</span>
                     </div>
                 </div>
 
@@ -101,7 +101,7 @@ const NewAppointmentModal: FunctionComponent<Props> = ({ setIsModalOpen, loadApp
                     onClick={handleSubmit}
                     disabled={
                         !validateDate() || date === "" || time === ""
-                    } className={`mt-10 rounded-lg text-white bg-black p-2 w-full ${!validateDate() || date === "" || time === "" ? "bg-gray-400 cursor-not-allowed" : ""}`}>Submit</button>
+                    } className={`mt-10 rounded-lg text-white bg-black p-2 w-full ${!validateDate() || date === "" || time === "" ? "bg-gray-400 cursor-not-allowed" : ""}`}>Valider</button>
             </div>
 
         </div >

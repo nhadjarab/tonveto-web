@@ -74,7 +74,7 @@ const PaymentForm: FunctionComponent<Props> = ({
              disabled={!stripe || isLoading}
              onClick={async () => {
                 createSubscription()
-            }} className={`p-2 bg-black text-white rounded-lg ${ isLoading && "bg-gray-400 cursor-not-allowed" }`}>Subscribe - 2 Euro/Month</button>
+            }} className={`p-2 bg-black text-white rounded-lg ${ isLoading && "bg-gray-400 cursor-not-allowed" }`}>Souscrire - 2€ / mois</button>
         </div>
     </div>
 }

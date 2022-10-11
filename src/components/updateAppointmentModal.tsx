@@ -72,7 +72,7 @@ const UpdateAppointmentModal: FunctionComponent<Props> = ({ setIsModalOpen, load
         <div onClick={(e) => {
             e.stopPropagation()
         }} className="w-[40rem] min-h-[20rem] bg-white rounded-lg shadow-lg p-8 flex flex-col">
-            <span className="font-medium mb-4">Update Appointment</span>
+            <span className="font-medium mb-4">Editer rendez-vous</span>
 
 
             <div className="h-full w-full flex flex-col items-center justify-center">
@@ -95,7 +95,7 @@ const UpdateAppointmentModal: FunctionComponent<Props> = ({ setIsModalOpen, load
                     onClick={handleSubmit}
                     disabled={
                         !validateDate() || date === "" || time === "" || (date === selectedAppointment!.date && time === selectedAppointment!.time)
-                    } className={`mt-10 rounded-lg text-white bg-black p-2 w-full ${!validateDate() || date === "" || time === "" || (date == selectedAppointment!.date && time == selectedAppointment!.time) ? "bg-gray-400 cursor-not-allowed" : ""}`}>Submit</button>
+                    } className={`mt-10 rounded-lg text-white bg-black p-2 w-full ${!validateDate() || date === "" || time === "" || (date == selectedAppointment!.date && time == selectedAppointment!.time) ? "bg-gray-400 cursor-not-allowed" : ""}`}>Valider</button>
             </div>
 
         </div >

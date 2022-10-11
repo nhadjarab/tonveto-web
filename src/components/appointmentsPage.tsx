@@ -127,7 +127,7 @@ const AppointmentsPage: FunctionComponent = () => {
                         height={300}
                         width={300}
                     />
-                    <span className="font-medium">Il n&apos;y a pas de rendez-vous</span>
+                    <span className="font-medium">Vous n&apos;y a pas de rendez-vous</span>
                     <button disabled={isFetching} onClick={loadAppointments} className={`  p-2 bg-black rounded-lg text-white ${isFetching && "bg-gray-400 cursor-not-allowed"}`}>{isFetching ? "Loading..." : "Actualiser"}</button>
                 </div>
             </Then>
@@ -137,7 +137,8 @@ const AppointmentsPage: FunctionComponent = () => {
                     <If condition={closedAppointments.length > 0}>
                         <Then>
                             <div className="w-full mb-4 flex flex-col">
-                                <span className="text-base text-gray-900 dark:text-white">Crénaux bloqués</span>
+                                {/* <span className="text-base text-gray-900 dark:text-white">Crénaux bloqués</span> */}
+                                <span className="text-blue-600 dark:text-blue-900" style={{fontWeight:"700"}}>Crénaux bloqués</span>
                                 <div className="w-full h-full flex flex-col mt-4">
                                     {
                                         closedAppointments.map((appointment) => {
@@ -160,8 +161,9 @@ const AppointmentsPage: FunctionComponent = () => {
                         </Then>
                         <Else>
                             <div className="flex flex-col">
-                                <span className="text-base text-gray-900 dark:text-white">Crénaux bloqués</span>
-                                <span >Vous n&apos;avez pas de prochains rendez-vous</span>
+                            <span className="text-blue-600 dark:text-blue-900" style={{fontWeight:"700"}}>Crénaux bloqués</span>
+                                {/* <span className="text-base text-gray-900 dark:text-white">Crénaux bloqués</span> */}
+                                <span >Aucun créaneau bloqué</span>
                             </div>
                         </Else>
                     </If>
@@ -188,9 +190,9 @@ const AppointmentsPage: FunctionComponent = () => {
                                                         <span className="text-base text-gray-900 dark:text-white" style={{overflowWrap:"anywhere"}} > {appointment.user.first_name}  {appointment.user.last_name}</span>
                                                     </div>
                                                     <div className="flex flex-col" style={{width:"11rem"}}>
-                                                        <span className="text-sm text-gray-900 dark:text-white" style={{width:"11rem" ,overflowWrap:"anywhere"}}>{appointment.pet?.name}, {appointment.pet?.species}, {appointment.pet?.breed} </span>
+                                                        <span className="text-sm text-gray-900 dark:text-white" style={{width:"11rem" ,overflowWrap:"anywhere"}}>{appointment.pet?.name}, {appointment.pet?.species}, {appointment.pet?.breed}, {appointment.pet?.crossbreed ? "Croisé(e)" : "Pure race"} </span>
                                                      
-                                                        <span className="text-sm text-gray-900 dark:text-white" style={{width:"11rem" ,overflowWrap:"anywhere"}}>{appointment.pet?.crossbreed ? "Crossbred" : "Not crossbred"}</span>
+                                                        {/* <span className="text-sm text-gray-900 dark:text-white" style={{width:"11rem" ,overflowWrap:"anywhere"}}>{appointment.pet?.crossbreed ? "Croisé(e)" : "Pure race"}</span> */}
                                                     </div>
                                                 </div>
 
@@ -227,8 +229,9 @@ const AppointmentsPage: FunctionComponent = () => {
                         </Then>
                         <Else>
                             <div className="flex mb-4 flex-col">
-                                <span className="text-base text-gray-900 dark:text-white">Upcoming Appointments</span>
-                                <span>You have no upcoming appointments</span>
+                            <span className="text-blue-600 dark:text-blue-900" style={{fontWeight:"700"}}>Prochains rendez-vous</span>
+                                {/* <span className="text-base text-gray-900 dark:text-white">Upcoming Appointments</span> */}
+                                <span>Pas de rendez-vous</span>
                             </div>
                         </Else>
                     </If>
@@ -271,13 +274,13 @@ const AppointmentsPage: FunctionComponent = () => {
                                                         setSelectedAppointment(appointment)
                                                         setIsNewAppointmentModalOpen(true)
                                                     }} className="font-medium p-2 rounded-lg border-2 text-sm border-white " style={{background:"#8effa1"}}>
-                                                        Plannifier le rendez-vous 
+                                                        Plannifier un rendez-vous 
                                                     </button>
                                                     <button onClick={async () => {
                                                         setSelectedAppointment(appointment)
                                                         setIsMedicalReportModalOpen(true)
                                                     }} className="font-medium p-2 rounded-lg bg-black text-sm text-white ">
-                                                        {appointment.MedicalReport.length === 0 ? "Ajouter rapport médical" : "Editer rapport médical"}
+                                                        {appointment.MedicalReport.length === 0 ? "Ajouter bilan médical" : "Editer bilan médical"}
                                                     </button>
                                                 </div>
                                             </div>
@@ -288,8 +291,9 @@ const AppointmentsPage: FunctionComponent = () => {
                         </Then>
                         <Else>
                             <div className="flex flex-col">
-                                <span className="text-base text-gray-900 dark:text-white">Past Appointments</span>
-                                <span>You have no past appointments</span>
+                            <span className="text-blue-600 dark:text-blue-900" style={{fontWeight:"700"}}>Rendez-vous passés</span>
+                                {/* <span className="text-base text-gray-900 dark:text-white">Past Appointments</span> */}
+                                <span>Pas de rendez-vous</span>
                             </div>
                         </Else>
                     </If>

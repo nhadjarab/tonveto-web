@@ -35,12 +35,12 @@ const ProfileComponent: FunctionComponent<Props> = ({ user }) => {
                 <span className="font-medium text-lg">{user?.vetProfile.first_name[0]}{user?.vetProfile.last_name[0]}</span>
             </div>
             <span className="font-medium text-lg">{user?.vetProfile.first_name} {user?.vetProfile.last_name}</span>
-            <span className="font-medium text-sm">ID NO: {user?.vetProfile.identification_order}</span>
-            <span className="font-medium text-sm">Wallet: €{user?.vetProfile.balance}</span>
+            <span className="font-medium text-sm">Numéro ordinal: {user?.vetProfile.identification_order}</span>
+            <span className="font-medium text-sm">Solde: {user?.vetProfile.balance} €</span>
             {user?.vetRating._avg.rating != null && <span>{user?.vetRating._avg.rating}/5</span>}
         </div>
 
-        <span className="font-medium text-lg">Clinics</span>
+        <span className="font-medium text-lg">Cliniques</span>
         <div className="flex flex-wrap gap-2">
             {user?.vetProfile.clinics.length === 0 ? "Vet is not part of any clinic" : user?.vetProfile.clinics.map((clinicProfile) => {
                 const clinic: Clinic = clinicProfile.clinic
@@ -53,7 +53,7 @@ const ProfileComponent: FunctionComponent<Props> = ({ user }) => {
             })}
         </div>
 
-        <span className="font-medium text-lg">Working Hours</span>
+        <span className="font-medium text-lg">Horaires</span>
         <div className="flex flex-wrap gap-2">
             {user?.vetProfile.calendar.length === 0 ? "Vet does not have working hours" : <>
                 <WorkHour title="Monday" day={user?.vetProfile.calendar[0].monday} />
@@ -67,9 +67,9 @@ const ProfileComponent: FunctionComponent<Props> = ({ user }) => {
             }
         </div>
 
-        <span className="font-medium text-lg">Comments:</span>
+        <span className="font-medium text-lg">Commentaires:</span>
         {
-            user?.vetProfile.CommentVet.length === 0 ? "No comments" : user?.vetProfile.CommentVet.map((comment) => {
+            user?.vetProfile.CommentVet.length === 0 ? "Pas de commentaires" : user?.vetProfile.CommentVet.map((comment) => {
 
                 return <div key={comment.id} className="w-full h-[5rem] p-2 bg-gray-100 rounded-lg flex flex-col justify-center items-center relative">
                     <span className="font-medium text-sm">{comment.text}
@@ -79,7 +79,7 @@ const ProfileComponent: FunctionComponent<Props> = ({ user }) => {
                         setSelectedUserId(user.vetProfile.id)
                         setIsModalOpen(true)
                     }} className="absolute top-2 right-2 text-sm text-red-600">
-                        report comment
+                        Signaler commentaire
                     </button>
                     <button className="absolute top-2 left-2 text-sm">
                         {comment.owner.first_name} {comment.owner.last_name}

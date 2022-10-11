@@ -28,7 +28,7 @@ const SideBar: FunctionComponent<SideBartProps> = ({ active, setActive }) => {
     }
 
     return <div className="w-[18rem] h-screen p-10 flex flex-col items-center justify-between bg-white text-black">
-        <span className="font-medium text-[1.5rem]">VetoLib</span>
+        <span className="font-medium text-[1.5rem]">Tonveto</span>
 
         <div className="flex flex-col gap-y-4">
 
@@ -54,7 +54,7 @@ const SideBar: FunctionComponent<SideBartProps> = ({ active, setActive }) => {
 
             <div onClick={() => setActive(4)} className={`flex w-[14rem] items-center gap-x-2 cursor-pointer p-2 hover:bg-gray-200/60 duration-300 transition-all rounded-lg hover:scale-110 ${active === 4 && "bg-gray-200/60 scale-110"}`}>
                 <FiUser className="text-[1.5rem]" />
-                <span>Profile</span>
+                <span>Profil</span>
             </div>
 
 

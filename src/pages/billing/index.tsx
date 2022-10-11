@@ -62,7 +62,7 @@ const Billing: NextPage = () => {
         </Head>
 
         <div className='w-[40rem] h-[20rem] flex flex-col p-6 bg-white rounded-lg shadow-lg text-black items-center'>
-            <span className='text-lg font-medium'>Billing</span>
+            <span className='text-lg font-medium'>Abonnement mensuel</span>
 
             <div className='mt-6' />
 

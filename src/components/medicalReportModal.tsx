@@ -129,10 +129,10 @@ const MedicalReportModal: FunctionComponent<Props> = ({ setIsModalOpen, loadAppi
 
 
                 {/* Name */}
-                <label className={`${labelCalsseName}`}>Reason of visit:</label>
+                <label className={`${labelCalsseName}`}>Motif de la visite</label>
                 <input
                     defaultValue={values.reason}
-                    className={`${inputClassName} w-[26rem]`} placeholder="Reason" {...register("reason", {
+                    className={`${inputClassName} w-[26rem]`} placeholder="consultation générale" {...register("reason", {
                         required: {
                             value: true,
                             message: "reason is required"
@@ -145,7 +145,7 @@ const MedicalReportModal: FunctionComponent<Props> = ({ setIsModalOpen, loadAppi
 
 
                 {/* Address */}
-                <label className={`${labelCalsseName}`}>Diagnosis:</label>
+                <label className={`${labelCalsseName}`}>Diagnostic</label>
                 <input
                     defaultValue={values.diagnosis}
                     className={`${inputClassName} w-[26rem]`} {...register("diagnosis", {
@@ -154,13 +154,13 @@ const MedicalReportModal: FunctionComponent<Props> = ({ setIsModalOpen, loadAppi
                             message: "diagnosis is required"
                         },
 
-                    })} type="text" placeholder='Diagnosis' />
+                    })} type="text" placeholder='Diagnostic' />
                 {errors.diagnosis && (
                     <span className="text-red-600">{errors.diagnosis.message}</span>
                 )}
 
                 {/* Address */}
-                <label className={`${labelCalsseName}`}>Treatment:</label>
+                <label className={`${labelCalsseName}`}>Traitement</label>
                 <input
                     defaultValue={values.treatment}
                     className={`${inputClassName} w-[26rem]`} {...register("treatment", {
@@ -169,26 +169,26 @@ const MedicalReportModal: FunctionComponent<Props> = ({ setIsModalOpen, loadAppi
                             message: "treatment is required"
                         },
 
-                    })} type="text" placeholder='Treatment' />
+                    })} type="text" placeholder='Traitement' />
                 {errors.treatment && (
                     <span className="text-red-600">{errors.treatment.message}</span>
                 )}
 
 
                 {/* Address */}
-                <label className={`${labelCalsseName}`}>notes:</label>
+                <label className={`${labelCalsseName}`}>Notes</label>
                 <textarea
                     defaultValue={values.notes}
                     className={`${inputClassName} w-[26rem] h-[10rem] resize-none`} {...register("notes", {
                         required: false
-                    })} placeholder='notes' />
+                    })} placeholder='Notes' />
                 {errors.notes && (
                     <span className="text-red-600">{errors.notes.message}</span>
                 )}
 
                 <button disabled={isDisabled() || (values.diagnosis === selectedAppointment?.MedicalReport[0]?.diagnosis && values.reason === selectedAppointment?.MedicalReport[0]?.reason && values.treatment === selectedAppointment?.MedicalReport[0]?.treatment &&
                     values.notes === selectedAppointment?.MedicalReport[0]?.notes)} className={`bg-black text-white p-2 rounded-lg w-[26rem] ${isDisabled() || (values.diagnosis === selectedAppointment?.MedicalReport[0]?.diagnosis && values.reason === selectedAppointment?.MedicalReport[0]?.reason && values.treatment === selectedAppointment?.MedicalReport[0]?.treatment &&
-                        values.notes === selectedAppointment?.MedicalReport[0]?.notes) ? "bg-gray-400 cursor-not-allowed" : ""}`} type="submit">{isSubmitting ? "Updating..." : selectedAppointment!.MedicalReport.length > 0 ? "Update" : "Create"}</button>
+                        values.notes === selectedAppointment?.MedicalReport[0]?.notes) ? "bg-gray-400 cursor-not-allowed" : ""}`} type="submit">{isSubmitting ? "Updating..." : selectedAppointment!.MedicalReport.length > 0 ? "OK" : "OK"}</button>
 
             </form>
         </div></div>

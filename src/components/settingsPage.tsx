@@ -129,7 +129,7 @@ const SettingsPage: FunctionComponent = () => {
     return <div className="w-[calc(100%-18rem)] h-screen flex flex-col text-black p-10">
         <div className="flex w-full items-center justify-between">
 
-            <span className="text-[1.5rem] font-medium">Infomations</span>
+            <span className="text-[1.5rem] font-medium">Mes informations</span>
 
         </div>
 

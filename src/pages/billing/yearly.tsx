@@ -59,11 +59,11 @@ const BillingYearly: NextPage = () => {
 
     return <div className='w-screen h-screen flex bg-bgColor items-center justify-center'>
         <Head>
-            <title>Abonnement menseul</title>
+            <title>Abonnement annuel</title>
         </Head>
 
         <div className='w-[40rem] h-[20rem] flex flex-col p-6 bg-white rounded-lg shadow-lg text-black items-center'>
-            <span className='text-lg font-medium'>Billing</span>
+            <span className='text-lg font-medium'>Abonnement annuel</span>
 
             <div className='mt-6' />
 

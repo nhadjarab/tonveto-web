@@ -45,7 +45,7 @@ const ProfilePage: FunctionComponent = () => {
 
 
     return <div className="w-[calc(100%-18rem)] h-screen flex flex-col text-black p-10">
-        <span className="text-[1.5rem] font-medium">Profile</span>
+        <span className="text-[1.5rem] font-medium">Mes informations</span>
 
         <div className="mt-4" />
 
