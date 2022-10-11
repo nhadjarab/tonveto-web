@@ -270,12 +270,12 @@ const AppointmentsPage: FunctionComponent = () => {
                                                     </div>
                                                 </div>
                                                 <div className="flex items-center gap-x-2 flex-wrap">
-                                                    <button onClick={async () => {
+                                                    {/* <button onClick={async () => {
                                                         setSelectedAppointment(appointment)
                                                         setIsNewAppointmentModalOpen(true)
                                                     }} className="font-medium p-2 rounded-lg border-2 text-sm border-white " style={{background:"#8effa1"}}>
                                                         Plannifier un rendez-vous 
-                                                    </button>
+                                                    </button> */}
                                                     <button onClick={async () => {
                                                         setSelectedAppointment(appointment)
                                                         setIsMedicalReportModalOpen(true)
